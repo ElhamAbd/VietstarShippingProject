@@ -1,14 +1,95 @@
-.navbar {
-    margin-bottom: 0;
-    background-color: #f4511e;
-    z-index: 9999;
-    border: 0;
-    font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
-    border-radius: 0;
-    font-family: Montserrat, sans-serif;
+
+.rows {
+    height: 100vh
+}
+.bg-orange{
+    background-color: #f06141;
+}
+#Register{
+    color: #f06141;
+}
+@keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
   }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+.form-control {
+    display: block;
+    width: 100%;
+    min-height: calc(1.5em + .75rem + 2px);
+    padding: .575rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 52px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+.card {
+    padding: 20px;
+    background-color: #eee;
+    padding-bottom: 50px;
+    padding-top: 50px
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #f9a826;
+    outline: 0;
+    box-shadow: none
+}
+
+.border-rad {
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    color: #fff;
+    background-color: #f9a826;
+    border-color: #f9a826
+}
+
+.border-rad:hover {
+    background-color: #f9a826;
+    border-color: #f9a826
+}
+  
 footer {
     font-size: 20px;
     margin-bottom: 20px; 
