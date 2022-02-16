@@ -89,6 +89,10 @@
     background-color: #f9a826;
     border-color: #f9a826
 }
+
+.location-text {
+    text-align: center;
+}
   
 footer {
     font-size: 20px;
