@@ -52,7 +52,9 @@
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="Email" tabindex="9" required>
                     </div>
+                </div>
 
+                <div class="container1-2">
                     <!-- Recipient's information -->
 
                     <div class="recipient">
@@ -89,7 +91,7 @@
                     </div>
                 </div>
 
-                <div class="container1-2">
+                <div class="container1-3">
                     <!-- Item description field -->
 
                     <div class="item_desc">

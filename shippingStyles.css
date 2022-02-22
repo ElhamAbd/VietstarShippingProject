@@ -1,0 +1,37 @@
+/* CSS Document */
+
+.container1 {
+    position: relative;
+}
+
+.container1-1 {
+    float: left;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+.container1-2 {
+    float: right;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+.container1-3 {
+    position: relative;
+    top: 100px;
+    border-top: 100px;
+    border-color: black;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
