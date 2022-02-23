@@ -1,33 +1,40 @@
 /* CSS Document */
 
+.logo_tl {
+    position: left;
+}
+
+.heading {
+    font-size: large;
+    text-align: center;
+}
+/*
 .container1 {
     position: relative;
 }
-
+*/
 .container1-1 {
     float: left;
-    margin-left: 50px;
-    margin-top: 50px;
-    margin-right: 50px;
-    margin-bottom: 50px;
+    border: 2px solid black;
+    padding: 50px;
+    margin-left: 100px;
 }
 
 .container1-2 {
     float: right;
-    margin-left: 50px;
-    margin-top: 50px;
-    margin-right: 50px;
-    margin-bottom: 50px;
+    border: 2px solid black;
+    padding: 50px;
+    margin-right: 100px;
 }
 
 .container1-3 {
-    position: relative;
+    float: bottom;
     top: 100px;
-    border-top: 100px;
-    border-color: black;
+    border-top: 2px solid black;
+    margin: 100px;
 }
 
-input[type=text], select {
+input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -35,3 +42,14 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+select {
+    width: 5%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
