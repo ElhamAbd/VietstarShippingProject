@@ -122,7 +122,7 @@ if($position=='admin') {
 <a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><i class="icon-shopping-cart icon-2x"></i><br> Sales</a>               
 <a href="products.php"><i class="icon-list-alt icon-2x"></i><br> Inventory</a>  
 <a href="supplier.php"><i class="icon-group icon-2x"></i><br> Suppliers</a>     
-<a href="customer.php"><i class="icon-group icon-2x"></i><br> Purchase</a>         
+<a href="purchase.php"><i class="icon-group icon-2x"></i><br> Purchase</a>         
 <a href="../index.php"><font color="red"><i class="icon-off icon-2x"></i></font><br> Logout</a> 
 <?php
 }
