@@ -18,13 +18,6 @@ $finalcode=createRandomPassword();
 	list-style: none;
 	padding-bottom: 10px;
 }
-
-.navbar-header {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 18px;
-}
-
 </style>
 <!--sa poip up-->
 <script src="jeffartagame.js" type="text/javascript" charset="utf-8"></script>
@@ -168,26 +161,133 @@ window.onload=startclock;
         </div><!--/span-->
 	<div class="span10">
 	<div class="contentheader">
-			<i class="icon-dashboard"></i> Dashboard
+			<i class="icon-table"></i> Sales
 			</div>
 			<ul class="breadcrumb">
-			<li><a href="index.php">Dashboard</a></li> 
+			<li><a href="index.php">Dashboard</a></li> /
+			<li class="active">Sales</li>
 			</ul>
 
 
 <div style="margin-top: -19px; margin-bottom: 21px;">	
-	<a  href="../index.php"><button class="btn btn-default btn-large" style="float: left;"><i class="icon icon-circle-arrow-left icon-large"></i> Back</button></a>
+	<a  href="index.php"><button class="btn btn-default btn-large" style="float: left;"><i class="icon icon-circle-arrow-left icon-large"></i> Back</button></a>
 </div><br><br><br>
 
-<div id="mainmain">
-<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><i class="icon-shopping-cart icon-2x"></i><br> Sales</a>               
-<a href="products.php"><i class="icon-list-alt icon-2x"></i><br> Inventory</a>  
-<a href="supplier.php"><i class="icon-group icon-2x"></i><br> Suppliers</a>     
-<a href="purchase.php"><i class="icon-group icon-2x"></i><br> Purchase</a>         
-<a href="../index.php"><font color="red"><i class="icon-off icon-2x"></i></font><br> Logout</a> 
+<form action="incoming.php" method="post" >								
+	<input type="hidden" name="pmt_method" value="<?php echo $_GET['pmt_method']; ?>" />
+	<input type="hidden" name="invoice" value="<?php echo $_GET['invoice']; ?>" />
+	<select name="product_id" style="width:650px;" class="chzn-select" required>
+	<option></option>
+		<?php
+		include('../connect.php');
+		$result = $db->prepare("SELECT * FROM products");
+			$result->bindParam(':invoice_id', $res);
+			$result->execute();
+			for($i=0; $row = $result->fetch(); $i++){
+		?>
+			<option value="<?php echo $row['product_id'];?>"><?php echo $row['product_code']; ?> | <?php echo $row['product_name']; ?> | Qty Onhand: <?php echo $row['qty_onhand']; ?></option>
+		<?php
+					}
+		?>
+	</select>
+	<input type="number" name="qty_picked" value="1" min="1" placeholder="Qty" autocomplete="off" style="width: 68px; height:30px; padding-top:6px; padding-bottom: 4px; margin-right: 4px; font-size:15px;" required>
+	<input type="hidden" name="discount" value="" autocomplete="off" style="width: 68px; height:30px; padding-top:6px; padding-bottom: 4px; margin-right: 4px; font-size:15px;" />
+	<input type="hidden" name="date" value="<?php echo date("m/d/y"); ?>" />
+	<button type="submit" class="btn btn-info" style="width: 123px; height:35px; margin-top:-5px;"><i class="icon-plus-sign icon-large"></i> Add</button>
+</form>
 
-<div class="clearfix"></div>
-</div>
+<table class="table table-bordered" id="resultTable" data-responsive="table">
+	<thead>
+		<tr>
+			<th> Product Code </th>
+			<th> Product Name </th>
+			<th> Category / Description </th>
+			<th> Unit Price </th>
+			<th> Qty </th>
+			<th> Amount </th>
+			<th> Action </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+			<?php
+				$id=$_GET['invoice'];
+				include('../connect.php');
+				$query = "SELECT * FROM sales_order so JOIN products p 
+				ON so.product_id = p.product_id
+				WHERE invoice = :invoice_id";
+				$result = $db->prepare($query);
+				$result->bindParam(':invoice_id', $id);
+				$result->execute();
+				for($i=1; $row = $result->fetch(); $i++){
+					?>
+					<tr class="record">
+					<td hidden><?php echo $row['product_id']; ?></td>
+					<td><?php echo $row['product_code']; ?></td>
+					<td><?php echo $row['product_name']; ?></td>
+					<td><?php echo $row['product_category']; ?></td>
+					<td>
+					<?php
+					$ppp=$row['unit_price'];
+					echo formatMoney($ppp, true);
+					?>
+					</td>
+					<td><?php echo $row['qty_picked']; ?></td>
+					<td>
+					<?php
+					$sales_order_amount=$row['sales_order_amount'];
+					echo formatMoney($sales_order_amount, true);
+					?>
+					</td>
+					<td width="90"><a href="delete.php?sales_order_id=<?php echo $row['sales_order_id']; ?>&invoice=<?php echo $_GET['invoice']; ?>&pmt_method=<?php echo $_GET['pmt_method']; ?>&qty_picked=<?php echo $row['qty_picked'];?>&product_id=<?php echo $row['product_id'];?>"><button class="btn btn-mini btn-warning"><i class="icon icon-remove"></i> Cancel </button></a></td>
+					</tr>
+			<?php
+				}
+			?>
+			<tr>
+			<th> </th>
+			<th>  </th>
+			<th>  </th>
+			<th>  </th>
+			<th>  </th>
+			<td> Total Amount: </td>
+			<th>  </th>
+		</tr>
+			<tr>
+				<th colspan="5"><strong style="font-size: 12px; color: #222222;">Total:</strong></th>
+				<td colspan="1"><strong style="font-size: 12px; color: #222222;">
+				<?php
+				function formatMoney($number, $fractional=false) {
+					if ($fractional) {
+						$number = sprintf('%.2f', $number);
+					}
+					while (true) {
+						$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+						if ($replaced != $number) {
+							$number = $replaced;
+						} else {
+							break;
+						}
+					}
+					return $number;
+				}
+				$invoice=$_GET['invoice'];
+				$resultas = $db->prepare("SELECT sum(sales_order_amount) FROM sales_order WHERE invoice= :a");
+				$resultas->bindParam(':a', $invoice);
+				$resultas->execute();
+				for($i=0; $rowas = $resultas->fetch(); $i++){
+				$total_amount=$rowas['sum(sales_order_amount)'];
+				echo formatMoney($total_amount, true);
+				}
+				?>
+				</strong></td>
+				<th></th>
+			</tr>
+		
+	</tbody>
+</table>
+<br>
+<a rel="facebox" href="checkout.php?payment_method=<?php echo $_GET['pmt_method']?>&invoice=<?php echo $_GET['invoice']?>&total_amount=<?php echo $total_amount ?>&total_profit=<?php echo $total_profit ?>&cashier=<?php echo $_SESSION['SESS_FIRST_NAME']?>"><button class="btn btn-success btn-large btn-block"><i class="icon icon-save icon-large"></i> SAVE</button></a>
 
 <div class="clearfix"></div>
 </div>
