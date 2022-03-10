@@ -168,12 +168,20 @@ window.onload=startclock;
 	<table cellpadding="3" cellspacing="0" style="font-family: arial; font-size: 12px;text-align:left;width : 100%;">
 
 		<tr>
-			<td>OR No. :</td>
+			<td>OR No.:</td>
 			<td><?php echo $invoice ?></td>
 		</tr>
 		<tr>
-			<td>Date :</td>
-			<td><?php echo $date ?></td>
+			<td>Date:</td>
+			<td><?php 
+  
+// Store the date 
+$myDate = date("d-m-y");
+  
+// Display the date and time 
+echo $myDate; 
+  
+?> </td>
 		</tr>
 	</table>
 	

@@ -11,7 +11,7 @@ $e = $_POST['Quantity_Product'];
 $f = $_POST['Product_id'];
 
 // query
-//$sql = "INSERT INTO customer (customer_name,address,contact,membership_number,prod_name,note,expected_date) VALUES (:a,:b,:c,:d,:e,:f)";
+
 $sql = "INSERT INTO `purchase`(`supplier_id`, `user_id`, `purchase_date`, `purchase_cost`, `purchase_qty`, `product_id`) VALUES (:a,:b,:c,:d,:e,:f)";
 $q = $db->prepare($sql);
 $res = $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$e,':f'=>$f));
@@ -19,7 +19,7 @@ $res = $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$e,':f'=>$f))
 if ($res) echo "Success";
 else echo "Fail";
 
-//header("location: customer.php");
+header("location: purchase.php");
 
 
 ?>
