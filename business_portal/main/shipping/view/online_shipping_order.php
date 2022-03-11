@@ -1,6 +1,8 @@
 <?php
 require_once '../../connect.php';
 require_once '../model/shipping_data.php';
+require_once('../../../auth.php');
+$position=$_SESSION['SESS_POSITION'];
 $search_input = trim(filter_input(INPUT_GET, 'search_input', FILTER_SANITIZE_STRING));
 $customer = search_customer($search_input);
 //print_r($customer);
@@ -16,7 +18,6 @@ $customer = search_customer($search_input);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="../../css/lib/bootstrap.css">
   <link rel="stylesheet" href="../../css/lib/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="../../css/styles.css">
@@ -56,9 +57,9 @@ $customer = search_customer($search_input);
    }
 
 
-  @media only screen and (max-width: 991px) {
+   @media only screen and (max-width: 991px) {
   .navbar-primary {
-    background: blue;
+    background: #505251;
   }
   
 }
@@ -70,12 +71,12 @@ $customer = search_customer($search_input);
 	<nav class="navbar-primary sticky">
 		<a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
 		<div class="navbar-primary-menu" id="myTopnav"> 
-			<li> <a class="d-flex align-items-center pl-3 text-white text-decoration-none"><i class="icon-truck icon-2x icon-2x"></i><span class="fs-4">Gửi Hàng (Shipping)</span></a></li>        
-			<li><a href="../index.php" class="nav-link text-white"> > Trang Chủ (Home)</a></li>
-      <li><a href="shipping_form_online.php" class="nav-link text-white"> > Tạo Đơn Gửi Hàng (Shipping Form)</a></li>
-      <li><a href="#" class="nav-link text-white active"> > Đơn Gửi Hàng Online (Online Shipping Orders)</a></li>
-      <li><a href="paid_shipping_order.php" class="nav-link text-white"> > Đơn Gửi Hàng Đã Thanh Toán (Paid Shipping Orders)</a></li>		
-      <li><a href="#"><i class="icon-off icon-large"></i> Log Out</a></li>
+      <li><a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Shipping</span></a></li>          
+			<li><a href="../../index.php" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li> 
+      <li><a href="../index.php" class="nav-link text-white"> Tìm Khách Hàng (Search Customer)</a></li>
+      <li><a href="shipping_form_online.php" class="nav-link text-white"> Tạo Đơn Gửi Hàng (Shipping Form)</a></li>
+      <li><a href="online_shipping_order.php" class="nav-link text-white active"> Đơn Gửi Hàng Online (Online Shipping Orders)</a></li>
+			<li><a href="paid_shipping_order.php" class="nav-link text-white"> Đơn Gửi Hàng Đã Thanh Toán (Paid Shipping Orders)</a></li>		
     </div>
 	</nav><!--/.navbar-primary-->
 	<div class="main-content mt-10">
@@ -141,6 +142,11 @@ $customer = search_customer($search_input);
 </html>
 
 <script>
+  /** Toggle dashboard */
+  $(".toggle-navbar-btn").click(function(){
+    $(".navbar-primary").toggle();
+  });
+
 var application = new Vue({
 	el:'#searchApp',
 	data:{
@@ -152,7 +158,7 @@ var application = new Vue({
 	},
 	methods: {
 		fetchData:function(){
-			axios.post('../logic/get_online_shipping_orders.php', {
+			axios.post('../logic/get_online_shipping_orders_new.php', {
 				query:this.query,
         date1: this.date1,
         date2: this.date2

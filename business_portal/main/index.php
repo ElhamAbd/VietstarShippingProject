@@ -30,7 +30,7 @@
 		<ul class="navbar-primary-menu">
 			<li> <a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Dashboard</span></a></li>
 			<li class="active"><a href="#" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li>             
-			<li><a href="shipping/index.php" class="nav-link text-white"><i class="icon-truck icon-2x icon-2x"></i> Shipping</a></li>
+			<li><a href="#" class="nav-link text-white"><i class="icon-truck icon-2x icon-2x"></i> Shipping</a></li>
 			<li><a href="inventory/index.php" class="nav-link text-white"><i class="icon-list-alt icon-2x"></i> Inventory</a></li>
 			<li><a href="#" class="nav-link text-white"><i class="icon-group icon-2x"></i>Customers</a></li>
 			<li><a href="#" class="nav-link text-white"><i class="icon-bar-chart icon-2x"></i> Sales Report</a></li>		

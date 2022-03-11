@@ -1,9 +1,13 @@
 <?php
 require_once '../../connect.php';
 require_once '../model/shipping_data.php';
+require_once '../model/inventory_data.php';
 $mst = trim(filter_input(INPUT_GET, 'mst', FILTER_SANITIZE_STRING));
-$shipord = get_shipping_order($mst);
-//print_r($shipord);
+$shipord = get_shipping_invoice_info($mst);
+$sales_id = $shipord[0]['sales_id'];
+if (!empty($sales_id)) { // Some instore items are purcahse
+  $sales_orders = get_sales_order($sales_id);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,15 +75,15 @@ $shipord = get_shipping_order($mst);
 
 <body>
 <?php include '../../navfixed.php';?>
-	<nav class="navbar-primary sticky">
+  <nav class="navbar-primary sticky">
 		<a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
 		<div class="navbar-primary-menu" id="myTopnav"> 
-			<li> <a class="d-flex align-items-center pl-3 text-white text-decoration-none"><i class="icon-truck icon-2x icon-2x"></i><span class="fs-4">Gửi Hàng (Shipping)</span></a></li>        
-			<li><a href="../index.php" class="nav-link text-white"> > Trang Chủ (Home)</a></li>
-      <li><a href="shipping_form_online.php" class="nav-link text-white active"> > Tạo Đơn Gửi Hàng (Shipping Form)</a></li>
-      <li><a href="online_shipping_order.php" class="nav-link text-white"> > Đơn Gửi Hàng Online (Online Shipping Orders)</a></li>
-			<li><a href="paid_shipping_order.php" class="nav-link text-white"> > Đơn Gửi Hàng Đã Thanh Toán (Paid Shipping Orders)</a></li>		
-      <li><a href="#"><i class="icon-off icon-large"></i> Log Out</a></li>
+      <li><a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Shipping</span></a></li>           
+			<li><a href="../../index.php" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li> 
+      <li><a href="../index.php" class="nav-link text-white"> Tìm Khách Hàng (Search Customer)</a></li>
+      <li><a href="shipping_form_online.php" class="nav-link text-white"> Tạo Đơn Gửi Hàng (Shipping Form)</a></li>
+      <li><a href="online_shipping_order.php" class="nav-link text-white "> Đơn Gửi Hàng Online (Online Shipping Orders)</a></li>
+			<li><a href="paid_shipping_order.php" class="nav-link text-white active"> Đơn Gửi Hàng Đã Thanh Toán (Paid Shipping Orders)</a></li>		
     </div>
 	</nav><!--/.navbar-primary-->
 	<div class="main-content mt-10">
@@ -106,7 +110,7 @@ $shipord = get_shipping_order($mst);
          <!-- begin invoice-header -->
          <div class="invoice-header">
             <div class="invoice-from">
-               <small>From</small>
+               <small>Người Gửi - Sender</small>
                <address class="m-t-5 m-b-5">
                   <strong class="text-inverse"><?=$shipord[0]['cust_name']?></strong><br>
                   <?=$shipord[0]['cust_address']?><br>
@@ -115,7 +119,7 @@ $shipord = get_shipping_order($mst);
                </address>
             </div>
             <div class="invoice-to">
-               <small>To</small>
+               <small>Người Nhận - Recipient</small>
                <address class="m-t-5 m-b-5">
                   <strong class="text-inverse"><?=$shipord[0]['recipient_name']?></strong><br>
                   <?=$shipord[0]['recipient_address']?><br>
@@ -124,14 +128,15 @@ $shipord = get_shipping_order($mst);
             </div>
             <div class="invoice-date">
               <div class="date text-inverse m-t-5">MST-<?=$shipord[0]['mst']?></div>
-               <div class="m-t-5 m-b-5">
-                  Send date (y/m/d): <?=$shipord[0]['send_date']?><br>
-                  Total Weight (lbs): <?=$shipord[0]['total_weight']?><br>
-                  Number of packages: <?=$shipord[0]['num_of_packages']?><br>
-                  Package value ($): <?=$shipord[0]['package_value']?><br>
-                  Send To: <?=$shipord[0]['location']?><br>
-                  Price/lb ($): <?=$shipord[0]['price_per_lb']?><br>
-              </div>
+                <small> 
+                  Ngày Gửi - Send date (y/m/d): <?=$shipord[0]['send_date']?><br>
+                  Cân Nặng - Total Weight: <?=$shipord[0]['total_weight']?> lb(s)<br>
+                  Số Lượng Thùng - Total packages: <?=$shipord[0]['num_of_packages']?><br>
+                  Trị Giá Hàng - Value: $<?=$shipord[0]['package_value']?><br>
+                  Gửi Đến - Send To: <?=$shipord[0]['location']?><br>
+                  Price/lb: $<?=$shipord[0]['price_per_lb']?><br>
+                </small>
+              
             </div>
          </div>
          <!-- end invoice-header -->
@@ -163,6 +168,7 @@ $shipord = get_shipping_order($mst);
           </div>
           <!-- end pkg-table-responsive -->
       <!-- begin in-store-item-table-responsive -->
+      <?php if (!empty($sales_id)) { ?>
           <div class="graybox pt-2 pb-2">
             <strong class="text-inverse"><u> In-store items</u></strong><br>
           </div>
@@ -178,20 +184,23 @@ $shipord = get_shipping_order($mst);
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                    <td  width="25%">Ensure</td>
-                    <td  width="25%">10</td>
-                    <td  width="25%">13</td>
-                    <td  width="25%">130</td>
-                  </tr>
+                <?php 
+                  $total_instore = 0;
+                  for($j = 0; $j < count($sales_orders); $j++) {
+                    $total_price = $sales_orders[$j]['qty_picked'] * $sales_orders[$j]['unit_price'];
+                    $total_instore =  $total_instore + $total_price;
+                ?>
+                    <tr>
+                      <td width="25%"><?=$sales_orders[$j]['product_name']?></td>
+                      <td width="25%"><?=$sales_orders[$j]['qty_picked']?></td>
+                      <td width="25%"><?=$sales_orders[$j]['unit_price']?></td>
+                      <td width="25%"><?=$total_price?></td>
+                    </tr>
+                  <?php } ?>    
               </tbody>
             </table>
           </div><!--table-responsive -->
-       
-           <div class="row">
-                <div class="col-7"></div>
-                <div class="col-5"><strong>Total: </strong></div>
-            </div>
+         <?php } ?><!--is shown if some instore items are purchased -->
       <!-- end in-store-item-table-responsive -->    
       <!-- begin payment-table-responsive -->   
       <div class="graybox pt-2 pb-2">
@@ -219,6 +228,14 @@ $shipord = get_shipping_order($mst);
             </div><!--col-6-->
           </div><!--row-->
           <div class="row">
+            <div class="item col-6">
+              <label>Instore Item</label>
+            </div><!--col-6-->
+            <div class="item col-6">
+              <?=$total_instore;?>
+            </div><!--col-6-->
+          </div><!--row--> 
+          <div class="row">
             <div class="col-6">
               <label>Insurance</label>
             </div><!--col-6-->
@@ -226,14 +243,6 @@ $shipord = get_shipping_order($mst);
               <?=$shipord[0]['insurance'];?>
             </div><!--col-6-->
           </div><!--row-->
-          <div class="row">
-            <div class="item col-6">
-              <label>In-store Item</label>
-            </div><!--col-6-->
-            <div class="item col-6">
-               Unkown
-            </div><!--col-6-->
-          </div><!--row--> 
           <hr>
           <div class="row">
             <div class="item col-6">
@@ -255,44 +264,17 @@ $shipord = get_shipping_order($mst);
       </div><!--row-->  
        <!-- end payment-table-responsive -->  
          <!--End Test code-->
-            <!-- begin invoice-price -->
-            <!--<div class="invoice-price">
-               <div class="invoice-price-left">
-                  <div class="invoice-price-row">
-                     <div class="sub-price">
-                        <small>SUBTOTAL</small>
-                        <span class="text-inverse">$4,500.00</span>
-                     </div>
-                     <div class="sub-price">
-                        <i class="fa fa-plus text-muted"></i>
-                     </div>
-                     <div class="sub-price">
-                        <small>PAYPAL FEE (5.4%)</small>
-                        <span class="text-inverse">$108.00</span>
-                     </div>
-                  </div>
-                  TOTAL
-               </div>
-               <div class="invoice-price-right">
-                  <span class="f-w-600">$4508.00</span>
-               </div>
-            </div>-->
-            <!-- end invoice-price 
-         </div>-->
-         <!-- end invoice-content -->
-         <!-- begin invoice-note -->
-        <!-- <div class="invoice-note">
-            * Make all cheques payable to [Your Company Name]<br>
-            * Payment is due within 30 days<br>
-            * If you have any questions concerning this invoice, contact  [Name, Phone Number, Email]
-         </div>-->
-         <!-- end invoice-note -->
       </div><!--print_content-->
    </div><!--col-md-12-->
 	</div><!--main-content-->  
 </body>
 
 <script>
+/** Toggle dashboard */
+$(".toggle-navbar-btn").click(function(){
+  $(".navbar-primary").toggle();
+});
+
 function Clickheretoprint()
 { 
   var disp_setting="toolbar=yes,location=no,directories=yes,menubar=yes,"; 

@@ -4,10 +4,6 @@ require_once '../model/shipping_data.php';
 require_once '../model/inventory_data.php';
 require_once('../../../auth.php');
 $position=$_SESSION['SESS_POSITION'];
-// Populate the form with existing customer data 
-$search_input = trim(filter_input(INPUT_GET, 'search_input', FILTER_SANITIZE_STRING));
-$customer = search_customer($search_input);
-// Populate the form with new customer data or customer data submitted via Customer Portal
 $shipping_order_id = trim(filter_input(INPUT_POST, 'shipping_order_id', FILTER_SANITIZE_STRING));
 $tmp = get_temp_shipping_order($shipping_order_id);
 ?>
@@ -70,7 +66,7 @@ $tmp = get_temp_shipping_order($shipping_order_id);
 
   @media only screen and (max-width: 991px) {
   .navbar-primary {
-    background: #505251;
+    background: blue;
   }
   
 }
@@ -82,7 +78,7 @@ $tmp = get_temp_shipping_order($shipping_order_id);
 	<nav class="navbar-primary sticky">
 		<a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
 		<div class="navbar-primary-menu" id="myTopnav"> 
-		  <li><a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Shipping</span></a></li>           
+			<li> <a class="d-flex align-items-center pl-3 text-white text-decoration-none"><i class="icon-truck icon-2x icon-2x"></i><span class="fs-4">Gửi Hàng (Shipping)</span></a></li>        
 			<li><a href="../../index.php" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li> 
       <li><a href="../index.php" class="nav-link text-white"> Tìm Khách Hàng (Search Customer)</a></li>
       <li><a href="shipping_form_online.php" class="nav-link text-white active"> Tạo Đơn Gửi Hàng (Shipping Form)</a></li>
@@ -102,53 +98,29 @@ $tmp = get_temp_shipping_order($shipping_order_id);
         <div class="col-6">
           <div class="item">
             <label for="name"> Họ & Tên - Full Name<span>*</span></label>
-            <?php  if ($customer[0] == 0) { ?>
-              <input id="name" type="text" name="cust_name" value="<?=$tmp[0]['cust_name']?>" required/>
-            <?php } else { ?>
-              <input id="name" type="text" name="cust_name" value="<?=$customer[0]['cust_name']?>" required/>
-            <?php  } ?>
+            <input id="name" type="text" name="cust_name" value="<?=$tmp[0]['cust_name']?>" required/>
           </div>
           <div class="item">
               <label for="phone">SĐT - Phone (10 digits)<span>*</span></label>
-              <?php  if ($customer[0] == 0) { ?>
-                <input id="cust_phone" type="tel"  name="cust_phone" value="<?=$tmp[0]['cust_phone']?>" placeholder="XXXXXXXXXX" required/>
-              <?php } else { ?>
-                <input id="cust_phone" type="tel"  name="cust_phone" value="<?=$customer[0]['cust_phone']?>" placeholder="XXXXXXXXXX" required/>
-              <?php  } ?>
+              <input id="cust_phone" type="tel"  name="cust_phone" value="<?=$tmp[0]['cust_phone']?>" required/>
             </div>
             <div class="item">
               <label for="email">Email</label>
-              <?php  if ($customer[0] == 0) { ?>
-                <input id="email" type="text"   name="cust_email" value="<?=$tmp[0]['cust_email']?>">
-              <?php } else { ?>
-                <input id="email" type="text"   name="cust_email" value="<?=$customer[0]['cust_email']?>">
-              <?php  } ?>
+              <input id="email" type="text"   name="cust_email" value="<?=$tmp[0]['cust_email']?>">
             </div>
           <div class="item">
             <label for="address1">Địa Chỉ - Address<span>*</span></label>
-            <?php  if ($customer[0] == 0) { ?>
-              <input id="address1" type="text"   name="cust_address" value="<?=$tmp[0]['cust_address']?>" required>
-            <?php } else { ?>
-              <input id="address1" type="text"   name="cust_address" value="<?=$customer[0]['cust_address']?>" required>
-            <?php  } ?>
+            <input id="address1" type="text"   name="cust_address" value="<?=$tmp[0]['cust_address']?>" required>
           </div>
         </div><!--col-6-->
           <div class="col-6">   
           <div class="item">
               <label for="city">Thành Phố - City<span>*</span></label>
-              <?php  if ($customer[0] == 0) { ?>
-                <input id="city" type="text"   name="cust_city" value="<?=$tmp[0]['cust_city']?>" required>
-              <?php } else { ?>
-                <input id="city" type="text"   name="cust_city" value="<?=$customer[0]['cust_city']?>" required>
-              <?php  } ?>
+              <input id="city" type="text"   name="cust_city" value="<?=$tmp[0]['cust_city']?>" required>
             </div>
             <div class="item">
               <label for="state">Tiểu Bang - State<span>*</span></label>
-              <?php  if ($customer[0] == 0) { ?>
-                <input  type="text"   name="cust_state" list="state" value="<?=$tmp[0]['cust_state']?>" required>
-              <?php } else { ?>
-                <input  type="text"   name="cust_state" list="state" value="<?=$customer[0]['cust_state']?>" required>
-              <?php  } ?>
+              <input  type="text"   name="cust_state" list="state" value="<?=$tmp[0]['cust_state']?>" required>
               <datalist id="state">
                   <option  value="VA">Virginia</option>
                   <option  value="AL">Alabama</option>
@@ -205,16 +177,12 @@ $tmp = get_temp_shipping_order($shipping_order_id);
             </div>
             <div class="item">
               <label for="zip">Zip/Postal Code<span>*</span></label>
-              <?php  if ($customer[0] == 0) { ?>
-                <input id="zip" type="text" name="cust_zip" value="<?=$tmp[0]['cust_zip']?>" required>
-              <?php } else { ?>
-                <input id="zip" type="text" name="cust_zip" value="<?=$customer[0]['cust_zipcode']?>" required>
-              <?php  } ?>   
+              <input id="zip" type="text" name="cust_zip" value="<?=$tmp[0]['cust_zip']?>" required>
             </div>
         </div><!--col-6-->  
       </div>
-      <?php  if ($customer[0] == 0) { ?>
-        <div class="row">
+    
+      <div class="row">
         <div class="subheader"> Người Nhận - Recipient</div>
         <div class="item" id="recipient_form">
             <div class="item">
@@ -227,40 +195,10 @@ $tmp = get_temp_shipping_order($shipping_order_id);
             </div>
             <div class="item">
               <label for="phone">SĐT - Phone (10 digits)<span>*</span></label>
-              <input id="recipient_phone" type="text"  name="recipient_phone" value="<?=$tmp[0]['recipient_phone']?>" required/>
+              <input id="recipient_phone" type="text" id="recipient_phone"  name="recipient_phone" value="<?=$tmp[0]['recipient_phone']?>" required/>
             </div>
           </div><!--item-->
-        </div><!--row-->  
-      <?php } else { ?>
-        <div class="row">
-          <div class="subheader"> Người Nhận - Recipient</div>
-          <div class="item">
-            <label for="recipient">Chọn Người Nhận - Select Recipient<span>*</span></label>
-            <select name="recipient_id" id="recipient">
-              <?php for ($i = 0; $i < count($customer)-1; $i++) { ?> <!--count($customer)-1: the number of recipients-->
-                <option value="<?= $customer[$i]['recipient_id']?>"><?= $customer[$i]['recipient_name']?> - <?= $customer[$i]['recipient_phone']?> - <?=$customer[$i]['recipient_address']?></option>
-              <?php } ?>
-            </select>
-          </div> 
-          <button type="button" class="custom-btn add-recipient-btn col-2">Add New Recipient</button>
-          <div class="item hidden" id="recipient_form">
-              <div class="item">
-                <label for="name">Người Nhận Mới - New Recipient</label>
-                <input id="name" type="text" id="recipient_name" name="recipient_name"/>
-              </div>
-              <div class="item">
-                <label for="address">Địa Chỉ - Address</label>
-                <input id="address" type="text"  id="recipient_address"  name="recipient_address"/>
-              </div>
-              <div class="item">
-                <label for="phone">SĐT - Phone (10 digits)</label>
-                <input id="recipient_phone" type="text" name="recipient_phone" placeholder="XXXXXXXXXX" value="0000000000"/>
-              </div>
-              <input type="hidden" id="cust_id" name="cust_id" value="<?=$customer[0]['customer_id']?> ">
-            </div><!--item-->
-        </div><!--row--> 
-      <?php  } ?>   
-      
+      </div><!--row-->  
       <div class="row">
          <div class="subheader item"> 
            <label>Hàng Gửi - Package  </label><br> 
@@ -342,7 +280,8 @@ $tmp = get_temp_shipping_order($shipping_order_id);
           <input type="hidden" id="num_of_items" name="num_of_items">
           <button type="button" id="add-item-btn" class="custom-btn col-1"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
           <button type="button" id="remove-item-btn" class="custom-btn col-1"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
-          <button type="button" id="cal-item-btn" class="custom-btn col-1"><i class="fa fa-calculator" aria-hidden="true"></i></button>
+          <button type="button" id="cal-item-btn" class="custom-btn col-1"><i class="fa fa-calculator" aria-hidden="true"></i>
+</button>
           <!--End forum table-->
       </div><!--row-->  
       <div class="row">
@@ -474,10 +413,6 @@ function formValidation() {
 
 $(document).ready(function(){
   // Get the value of select option and search values in the select option
-   /** Toggle dashboard */
-   $(".toggle-navbar-btn").click(function(){
-    $(".navbar-primary").toggle();
-  });
 
   /** Toggle recipient form */
   $(".add-recipient-btn").click(function(){
