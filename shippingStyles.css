@@ -50,7 +50,18 @@ input[type=text] {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
+/*
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+*/
 select {
     width: 6%;
     padding: 12px 20px;
