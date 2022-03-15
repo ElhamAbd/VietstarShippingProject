@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 11, 2022 at 04:31 PM
+-- Generation Time: Mar 15, 2022 at 08:44 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -97,7 +97,9 @@ INSERT INTO `package` (`pkg_id`, `shipping_order_id`, `package_desc`, `package_w
 (7, 6, '10 Vitamin C, 100 Ginger candy packages', 15, '14005', 1),
 (8, 7, '38 Vitamin C', 40, '14006', 1),
 (9, 8, '10 Fish Oils', 12, '14007', 1),
-(10, 9, '80 Candies,  15 Fish Oils', 19, '14008', 1);
+(10, 9, '80 Candies,  15 Fish Oils', 19, '14008', 1),
+(11, 10, '10 Candies, 10 Ensures, 15 Fish Oils, 2 chai Dau Cu La', 4.3, '14009', 1),
+(13, 12, '12 Shoes, 10 Ensure', 17, '14010', 1);
 
 -- --------------------------------------------------------
 
@@ -121,14 +123,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_category`, `product_name`, `unit_price`, `supplier`, `qty_onhand`, `product_location`) VALUES
-(58, 'SKU001', 'Vitamin', ' Vitamin C ', 40, 'Multi-Vitamin', 96, 'Middle shelf - 5B'),
-(59, 'SKU002', 'Dairy', ' Ensure milk ', 35, 'YumYum', 73, 'Left shelf - 4A'),
-(60, 'SKU003', 'Candies/Snack', ' Ginger ', 43, 'YumYum', 63, 'Right shelf - 3A'),
-(61, 'SKU005', 'Vitamin', 'Fish Oil', 40, 'YumYum', 24, 'Middle shelf - 5B'),
+(58, 'SKU001', 'Vitamin', ' Vitamin C ', 40, 'Multi-Vitamin', 94, 'Middle shelf - 5B'),
+(59, 'SKU002', 'Dairy', ' Ensure milk ', 35, 'YumYum', 117, 'Left shelf - 4A'),
+(60, 'SKU003', 'Candies/Snack', ' Ginger ', 43, 'YumYum', 70, 'Right shelf - 3A'),
+(61, 'SKU005', 'Vitamin', 'Fish Oil', 40, 'YumYum', 165, 'Middle shelf - 5B'),
 (62, 'SKU009', 'Medicine', 'Tylenol', 40, 'Vitamin', 49, 'Middle shelf - 5B'),
 (63, 'SKU006', 'Vitamin', 'Vitamin A', 30, 'Multi-Vitamin', 50, '4A'),
-(64, 'SKU007', 'Candies/Snack', 'Lolippop', 15, 'YumYum', 87, '5B'),
-(65, 'SKU008', 'Candies/Snack', 'Mint candy', 50, 'YumYum', 115, '4A');
+(64, 'SKU007', 'Candies/Snack', 'Lolippop', 15, 'YumYum', 117, '5B'),
+(65, 'SKU008', 'Candies/Snack', 'Mint candy', 50, 'YumYum', 115, '4A'),
+(66, 'SKU10', 'Bread', 'banh mi', 8, 'YumYum', 10, '8X');
 
 -- --------------------------------------------------------
 
@@ -153,11 +156,16 @@ CREATE TABLE `purchase` (
 INSERT INTO `purchase` (`purchase_id`, `supplier_id`, `user_id`, `purchase_date`, `purchase_cost`, `purchase_qty`, `product_id`) VALUES
 (9, 6, 1, '2022-03-04', 11, 13, 58),
 (10, 6, 1, '2022-03-04', 11, 21, 58),
-(11, 6, 1, '2022-03-04', 8, 30, 62),
+(11, 6, 1, '2022-03-04', 18, 30, 62),
 (12, 7, 1, '2022-03-04', 10, 50, 65),
 (13, 6, 1, '2022-03-04', 13, 50, 58),
 (14, 6, 1, '2022-03-04', 8.5, 88, 59),
-(15, 6, 1, '2022-03-11', 13, 15, 58);
+(15, 6, 1, '2022-03-11', 13, 15, 58),
+(16, 6, 1, '2022-03-15', 15, 50, 61),
+(17, 5, 2, '2022-03-15', 10, 50, 59),
+(18, 5, 3, '2022-03-15', 13.5, 100, 61),
+(19, NULL, 3, '2022-03-15', 13, 10, 60),
+(20, 7, 3, '2022-03-15', 13.5, 30, 64);
 
 -- --------------------------------------------------------
 
@@ -251,7 +259,15 @@ INSERT INTO `sales` (`sales_id`, `sales_payment_method`, `sales_custname`, `sale
 (10, 'cash', 'Henry Jay', NULL, NULL, '2022-03-11', 80, 14007, 1, 10),
 (11, 'cash', 'Henry Jay', NULL, NULL, '2022-03-11', 80, 14007, 1, 11),
 (12, 'cash', 'Henry Jay', NULL, NULL, '2022-03-11', 80, 14007, 1, 12),
-(13, 'credit', 'Washington Lee', NULL, NULL, '2022-03-11', 115, 14008, 1, 13);
+(13, 'credit', 'Washington Lee', NULL, NULL, '2022-03-11', 115, 14008, 1, 13),
+(14, 'Cash', 'CL', 120, 0, '2022-03-15', 160, 0, 1, 14),
+(15, 'Credit Card', '2', 130, 0, '2022-03-15', 110, 0, 1, 15),
+(16, 'Credit Card', '33', 160, 0, '2022-03-15', 166, 0, 1, 16),
+(17, 'check', 'Joyce Smith', NULL, NULL, '2022-03-14', 163, 14009, 1, 17),
+(18, 'Cash', 'N/A', 40, 0, '2022-03-15', 40, 0, 1, 18),
+(19, 'zelle', 'Alice Tran', NULL, NULL, '2022-03-15', 70, 14010, 2, 19),
+(20, 'cash', 'NA', 40, 0, '2022-03-15', 40, 0, 2, 20),
+(21, 'cash', 'NA', 86, 0, '2022-03-15', 86, 0, 3, 21);
 
 -- --------------------------------------------------------
 
@@ -278,14 +294,25 @@ INSERT INTO `sales_order` (`sales_order_id`, `invoice`, `qty_picked`, `sales_ord
 (2, '2', 1, 30, 63, 2, 30),
 (3, '3', 2, 80, 61, 3, 40),
 (4, '4', 3, 45, 64, 4, 15),
-(5, NULL, 2, NULL, 61, 5, 40),
-(6, NULL, 2, NULL, 61, 5, 40),
-(7, NULL, 5, NULL, 59, 7, 35),
-(8, NULL, 5, NULL, 59, 8, 35),
+(5, '5', 2, NULL, 61, 5, 40),
+(6, '6', 2, NULL, 61, 5, 40),
+(7, '7', 5, NULL, 59, 7, 35),
+(8, '8', 5, NULL, 59, 8, 35),
 (9, '9', 10, 100, 59, 9, 35),
 (10, '10', 2, 80, 58, 10, 40),
 (11, '13', 2, 80, 58, 13, 40),
-(12, '13', 1, 35, 59, 13, 35);
+(12, '13', 1, 35, 59, 13, 35),
+(13, '14', 4, 160, 61, 14, 40),
+(14, '15', 2, 70, 59, 15, 35),
+(15, '15', 1, 40, 61, 15, 40),
+(16, '16', 1, 35, 59, 16, 35),
+(19, '16', 1, 35, 59, 16, 35),
+(20, '17', 1, 43, 60, 17, 43),
+(21, '17', 3, 120, 61, 17, 40),
+(22, '18', 1, 40, 58, 18, 40),
+(23, '19', 2, 70, 59, 19, 35),
+(24, '20', 1, 40, 61, 20, 40),
+(25, '21', 2, 86, 60, 21, 43);
 
 -- --------------------------------------------------------
 
@@ -327,7 +354,9 @@ INSERT INTO `shipping_order` (`shipping_order_id`, `mst`, `send_date`, `airport_
 (6, '14005', '2022-03-08', '2022-03-08', 15, 1, 0, 16, 0, 'cash', 1, 'Sài Gòn', 10, 21, 3.5, 68.5, '8 lbs vitamin', NULL),
 (7, '14006', '2022-03-10', '2022-03-10', 40, 1, 80, 0, 0, 'cash', 1, 'Tỉnh (Province)', 24, 41, 3.75, 350, 'NONE', 9),
 (8, '14007', '2022-03-11', '2022-03-11', 12, 1, 250, 0, 0, 'cash', 1, 'Sai Gon', 8, 19, 3.5, 122, 'NONE', 10),
-(9, '14008', '2022-03-11', '2022-03-11', 19, 1, 80, 0, 0, 'credit', 1, 'Tỉnh (Province)', 13, 28, 3.75, 186.25, 'NONE', 13);
+(9, '14008', '2022-03-11', '2022-03-11', 19, 1, 80, 0, 0, 'credit', 1, 'Tỉnh (Province)', 13, 28, 3.75, 186.25, 'NONE', 13),
+(10, '14009', '2022-03-14', '2022-03-16', 14.3, 1, 50, 15, 0, 'check', 1, 'Sai Gon', 9, 20, 3.5, 228.05, '4 Shoes', 17),
+(12, '14010', '2022-03-15', '2022-03-15', 17, 1, 0, 35, 0, 'zelle', 2, 'Tỉnh (Province)', 2, 12, 3.75, 168.75, '10 shoes', 19);
 
 -- --------------------------------------------------------
 
@@ -351,7 +380,9 @@ CREATE TABLE `supliers` (
 INSERT INTO `supliers` (`suplier_id`, `suplier_name`, `suplier_address`, `suplier_contact`, `contact_person`, `note`) VALUES
 (5, 'YumYum', '45 Candy Street', 'Min', '5716789900', ''),
 (6, 'Multi-Vitamin', '88 Skylight', 'Max', '5718890945', ''),
-(7, 'HealthySnack', '34 Rock Street', 'Ana Tran', '5716664747', '');
+(7, 'HealthySnack', '34 Rock Street', 'Ana Tran', '5716664747', ''),
+(8, 'Con Gau', '12345 de la Mer', 'Ocean', '301 123 4567', 'hieu con gau'),
+(9, 'Con Ga', '1 de la rue', 'street', '703 123 4567', 'chuon ga');
 
 -- --------------------------------------------------------
 
@@ -362,24 +393,23 @@ INSERT INTO `supliers` (`suplier_id`, `suplier_name`, `suplier_address`, `suplie
 CREATE TABLE `temp_package` (
   `pkg_id` int(11) NOT NULL,
   `shipping_order_id` int(11) NOT NULL,
-  `package_desc` text NOT NULL,
-  `package_weight` double NOT NULL
+  `package_desc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `temp_package`
 --
 
-INSERT INTO `temp_package` (`pkg_id`, `shipping_order_id`, `package_desc`, `package_weight`) VALUES
-(1, 1, '10 Fish Oils', 30),
-(2, 2, '15 Ensure', 15),
-(3, 2, '10 Vitamin C, 100 Ginger Candies, 28 dried dates', 25),
-(4, 3, '10 Candies, 10 Ensures, 15 Fish Oils', 15),
-(5, 4, '100 Candies,  15 Fish Oils', 15),
-(6, 4, '80 Candies,  15 Fish Oils', 15),
-(7, 5, '80 Candies,  15 Fish Oils', 18),
-(8, 6, '35 Fish Oils', 25),
-(9, 7, '38 Vitamin C', 20);
+INSERT INTO `temp_package` (`pkg_id`, `shipping_order_id`, `package_desc`) VALUES
+(1, 1, '10 Fish Oils'),
+(2, 2, '15 Ensure'),
+(3, 2, '10 Vitamin C, 100 Ginger Candies, 28 dried dates'),
+(4, 3, '10 Candies, 10 Ensures, 15 Fish Oils'),
+(5, 4, '100 Candies,  15 Fish Oils'),
+(6, 4, '80 Candies,  15 Fish Oils'),
+(7, 5, '80 Candies,  15 Fish Oils'),
+(8, 6, '35 Fish Oils'),
+(9, 7, '38 Vitamin C');
 
 -- --------------------------------------------------------
 
@@ -389,7 +419,6 @@ INSERT INTO `temp_package` (`pkg_id`, `shipping_order_id`, `package_desc`, `pack
 
 CREATE TABLE `temp_shipping_order` (
   `shipping_order_id` int(11) NOT NULL,
-  `total_weight` double NOT NULL,
   `num_of_package` int(11) NOT NULL,
   `package_value` double DEFAULT NULL,
   `location` varchar(100) DEFAULT NULL,
@@ -411,14 +440,14 @@ CREATE TABLE `temp_shipping_order` (
 -- Dumping data for table `temp_shipping_order`
 --
 
-INSERT INTO `temp_shipping_order` (`shipping_order_id`, `total_weight`, `num_of_package`, `package_value`, `location`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_phone`, `cust_email`, `recipient_name`, `recipient_address`, `recipient_phone`, `recipient_email`, `submitted_date`) VALUES
-(1, 30, 1, 250, 'Sai Gon', 'Henry Jay', '123 Rose Street', 'Fairfax', 'VA', 21035, '5715289496', 'hjay@gmail.com', 'Nguyen Nguyen', '88 To Hien Thanh, Q.10. TP. HCM', '0913555678', NULL, '2022-01-28'),
-(2, 40, 2, 80, 'Tinh', 'Anne Tran', '78 Langley Street', 'Chantilly', 'VA', 22055, '7035678907', NULL, 'Ngoc Tran', '90 Ben Thanh, Q.1, TP.HCM', '0813555698', NULL, '2022-01-27'),
-(3, 15, 1, 50, 'Sai Gon', 'Joyce Smith', '55 Wall Street', 'Chantilly', 'VA', 20489, '5718889090', NULL, 'Alex Chau', '88 NTMK, Q.3', '0918855378', NULL, '2022-01-28'),
-(4, 40, 2, 80, 'Tinh', 'Emma Tran', '78 Langley Street', 'Chantilly', 'VA', 22055, '7035678907', NULL, 'Hong Ai', '1000 Ben Thanh, Q.1, TP.HCM', '0917675678', NULL, '2022-01-25'),
-(5, 18, 1, 80, 'Tinh', 'Washington Lee', '99 BLuesky', 'Chantilly', 'VA', 22055, '3035678907', NULL, 'Anita', '10 Nguyen Dinh Chieu, Q.1, TP.HCM', '0913888678', NULL, '2022-01-26'),
-(6, 40, 1, 80, 'Saigon', 'Johanna', '78 Langley Street', 'Chantilly', 'VA', 22055, '2035678907', NULL, 'Hong Ai', '1000 Ben Thanh, Q.1, TP.HCM', '0916123678', NULL, '2022-01-15'),
-(7, 23, 1, 80, 'Saigon', 'Yen Nguyen', '22 Langley Street', 'Chantilly', 'VA', 22055, '2035678907', NULL, 'Hong Ai', '72 Ben Thanh, Q.1, TP.HCM', '0919909678', NULL, '2022-01-13');
+INSERT INTO `temp_shipping_order` (`shipping_order_id`, `num_of_package`, `package_value`, `location`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_phone`, `cust_email`, `recipient_name`, `recipient_address`, `recipient_phone`, `recipient_email`, `submitted_date`) VALUES
+(1, 1, 250, 'Sai Gon', 'Henry Jay', '123 Rose Street', 'Fairfax', 'VA', 21035, '5715289496', 'hjay@gmail.com', 'Nguyen Nguyen', '88 To Hien Thanh, Q.10. TP. HCM', '0913555678', NULL, '2022-01-28'),
+(2, 2, 80, 'Tinh', 'Anne Tran', '78 Langley Street', 'Chantilly', 'VA', 22055, '7035678907', NULL, 'Ngoc Tran', '90 Ben Thanh, Q.1, TP.HCM', '0813555698', NULL, '2022-01-27'),
+(3, 1, 50, 'Sai Gon', 'Joyce Smith', '55 Wall Street', 'Chantilly', 'VA', 20489, '5718889090', NULL, 'Alex Chau', '88 NTMK, Q.3', '0918855378', NULL, '2022-01-28'),
+(4, 2, 80, 'Tinh', 'Emma Tran', '78 Langley Street', 'Chantilly', 'VA', 22055, '7035678907', NULL, 'Hong Ai', '1000 Ben Thanh, Q.1, TP.HCM', '0917675678', NULL, '2022-01-25'),
+(5, 1, 80, 'Tinh', 'Washington Lee', '99 BLuesky', 'Chantilly', 'VA', 22055, '3035678907', NULL, 'Anita', '10 Nguyen Dinh Chieu, Q.1, TP.HCM', '0913888678', NULL, '2022-01-26'),
+(6, 1, 80, 'Saigon', 'Johanna', '78 Langley Street', 'Chantilly', 'VA', 22055, '2035678907', NULL, 'Hong Ai', '1000 Ben Thanh, Q.1, TP.HCM', '0916123678', NULL, '2022-01-15'),
+(7, 1, 80, 'Saigon', 'Yen Nguyen', '22 Langley Street', 'Chantilly', 'VA', 22055, '2035678907', NULL, 'Hong Ai', '72 Ben Thanh, Q.1, TP.HCM', '0919909678', NULL, '2022-01-13');
 
 -- --------------------------------------------------------
 
@@ -439,10 +468,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `name`, `password`, `position`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin'),
-(2, 'owner', 'owner', 'owner', 'Owner'),
-(3, 'employee1', 'employee1', 'employee1', 'Employee_1'),
-(4, 'employee2', 'employee2', 'employee2', 'Employee_2');
+(1, 'admin', 'Admin', 'admin', 'admin'),
+(2, 'owner', 'Mrs. Stephanie', 'owner', 'owner'),
+(3, 'employee1', 'employee1', 'employee1', 'employee1'),
+(4, 'employee2', 'employee2', 'employee2', 'employee2');
 
 --
 -- Indexes for dumped tables
@@ -549,19 +578,19 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `pkg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `pkg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `recipient`
@@ -573,25 +602,25 @@ ALTER TABLE `recipient`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `sales_order`
 --
 ALTER TABLE `sales_order`
-  MODIFY `sales_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `sales_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `shipping_order`
 --
 ALTER TABLE `shipping_order`
-  MODIFY `shipping_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `shipping_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `supliers`
 --
 ALTER TABLE `supliers`
-  MODIFY `suplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `suplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `temp_package`

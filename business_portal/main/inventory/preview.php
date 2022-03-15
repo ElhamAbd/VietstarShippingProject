@@ -25,44 +25,6 @@ $finalcode=createRandomPassword();
 <link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="lib/jquery.js" type="text/javascript"></script>
 <script src="src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : 'src/loading.gif',
-      closeImage   : 'src/closelabel.png'
-    })
-  })
-</script>
-<script language="javascript" type="text/javascript">
-/* Visit http://www.yaldex.com/ for full source code
-and get more free JavaScript, CSS and DHTML scripts! */
-var timerID = null;
-var timerRunning = false;
-function stopclock (){
-if(timerRunning)
-clearTimeout(timerID);
-timerRunning = false;
-}
-function showtime () {
-var now = new Date();
-var hours = now.getHours();
-var minutes = now.getMinutes();
-var seconds = now.getSeconds()
-var timeValue = "" + ((hours >12) ? hours -12 :hours)
-if (timeValue == "0") timeValue = 12;
-timeValue += ((minutes < 10) ? ":0" : ":") + minutes
-timeValue += ((seconds < 10) ? ":0" : ":") + seconds
-timeValue += (hours >= 12) ? " P.M." : " A.M."
-document.clock.face.value = timeValue;
-timerID = setTimeout("showtime()",1000);
-timerRunning = true;
-}
-function startclock() {
-stopclock();
-showtime();
-}
-window.onload=startclock;
-</script>	
 </head>
 <?php
 $invoice=$_GET['invoice'];
@@ -78,6 +40,7 @@ $cashier=$sales[0]['cashier'];
 $pt=strtolower($sales[0]['sales_payment_method']);
 $sales_amount=$sales[0]['sales_amount']; 
 $cust_payment=$sales[0]['sales_cust_payment'];
+$cust_name=$sales[0]['sales_custname'];
 ?>
 
 <body>
@@ -86,29 +49,18 @@ $cust_payment=$sales[0]['sales_cust_payment'];
 	<div class="container-fluid">
       <div class="row-fluid">
 	<div class="span2">
-             <div class="well sidebar-nav">
-			<ul class="nav nav-list">
-			<h4>Inventory</span></h4>  
-     	<hr>
-			<li><a href="index.php"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li> 
-			<li class="active"><a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><i class="icon-shopping-cart icon-2x"></i> Sales</a>  </li>             
-			<li><a href="products.php"><i class="icon-list-alt icon-2x"></i> Inventory</a>                                     </li>
-			<li><a href="supplier.php"><i class="icon-group icon-2x"></i> Suppliers</a>
-			<li><a href="purchase.php"><i class="icon-group icon-2x"></i> Purchase</a>                                  </li>
-			                </li>
-				<br><br><br><br><br><br>		
-			<li>
-			 <div class="hero-unit-clock">
-		
-			<form name="clock">
-			<font color="white">Time: <br></font>&nbsp;<input style="width:150px;" type="submit" class="trans" name="face" value="">
-			</form>
-			  </div>
-			</li>
-				
-				</ul>           
-          </div><!--/.well -->
-        </div><!--/span-->
+     <div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<h4>Inventory</span></h4>  
+					<hr>
+					<li><a href="../index.php"><i class="icon-dashboard icon-2x"></i> Dashboard  </a></li> 
+					<li><a href="products.php"><i class="icon-list-alt icon-2x"></i> Inventory</a></li>    
+					<li><a href="purchase.php"><i class="icon-group icon-2x"></i> Purchase </a> </li>     
+					<li class="active"><a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><i class="icon-shopping-cart icon-2x"></i> Sales </a></li>             
+					<li><a href="supplier.php"><i class="icon-group icon-2x"></i> Suppliers</a></li> 
+				</ul>               
+      </div><!--/.well -->
+   </div><!--/span-->
 		
 	<div class="span10">
 	<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><button class="btn btn-default"><i class="icon-arrow-left"></i> Back to Sales</button></a>
@@ -123,20 +75,14 @@ $cust_payment=$sales[0]['sales_cust_payment'];
 	Falls Church, Va 22044 	<br>  <br>
 	</center>
 	<div>
-	<?php
-	/*$resulta = $db->prepare("SELECT * FROM customer WHERE customer_name= :a");
-	$resulta->bindParam(':a', $cname);
-	$resulta->execute();
-	for($i=0; $rowa = $resulta->fetch(); $i++){
-	$address=$rowa['address'];
-	$contact=$rowa['contact'];
-	}*/
-	?>
 	</div>
 	</div>
 	<div style="width: 136px; float: left; height: 70px;">
 	<table cellpadding="3" cellspacing="0" style="font-family: arial; font-size: 12px;text-align:left;width : 100%;">
-
+		<tr>
+			<td>Customer :</td>
+			<td><?php echo $cust_name ?></td>
+		</tr>
 		<tr>
 			<td>OR No. :</td>
 			<td><?php echo $invoice ?></td>
@@ -154,9 +100,9 @@ $cust_payment=$sales[0]['sales_cust_payment'];
 	<table border="1" cellpadding="4" cellspacing="0" style="font-family: arial; font-size: 12px;	text-align:left;" width="100%">
 		<thead>
 			<tr>
-				<th width="90"> Product Code </th>
+				<th width="90"> UPC </th>
 				<th> Product Name </th>
-				<th> Qty </th>
+				<th> Quantity </th>
 				<th> Unit Price </th>
 				<th> Discount </th>
 				<th> Amount </th>
@@ -229,19 +175,19 @@ $cust_payment=$sales[0]['sales_cust_payment'];
 				}
 				?>
 				<tr>
-			<!--	<td colspan="5" style=" text-align:right;"><strong style="font-size: 12px; color: #222222;">
-						<font style="font-size:20px;">
+				<td colspan="5" style=" text-align:right;"><strong style="font-size: 12px; color: #222222;">
+						<font style="font-size:12px;">
 						<?php
-						if($pt=='cash'){
-							echo 'Cash:';
-						}
-						if($pt=='credit'){
+						//if($pt=='cash'){
+							echo 'Payment:';
+						//}
+						/*if($pt=='credit'){
 							echo 'Credit:';
-						}
+						}*/
 						?>&nbsp;
 						</strong>
 				</td>
-				<td colspan="2"><strong style="font-size: 15px; color: #222222;">	
+				<td colspan="2"><strong style="font-size: 12px; color: #222222;">	
 					<?php
 						echo formatMoney($cust_payment, true);
 					?>
@@ -265,7 +211,7 @@ $cust_payment=$sales[0]['sales_cust_payment'];
 					}
 					?>
 					</strong></td>
-				</tr>-->
+				</tr>
 			
 		</tbody>
 	</table>

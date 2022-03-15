@@ -68,40 +68,6 @@ function sum() {
         }
 </script>
 
-
- <script language="javascript" type="text/javascript">
-/* Visit http://www.yaldex.com/ for full source code
-and get more free JavaScript, CSS and DHTML scripts! */
-<!-- Begin
-var timerID = null;
-var timerRunning = false;
-function stopclock (){
-if(timerRunning)
-clearTimeout(timerID);
-timerRunning = false;
-}
-function showtime () {
-var now = new Date();
-var hours = now.getHours();
-var minutes = now.getMinutes();
-var seconds = now.getSeconds()
-var timeValue = "" + ((hours >12) ? hours -12 :hours)
-if (timeValue == "0") timeValue = 12;
-timeValue += ((minutes < 10) ? ":0" : ":") + minutes
-timeValue += ((seconds < 10) ? ":0" : ":") + seconds
-timeValue += (hours >= 12) ? " P.M." : " A.M."
-document.clock.face.value = timeValue;
-timerID = setTimeout("showtime()",1000);
-timerRunning = true;
-}
-function startclock() {
-stopclock();
-showtime();
-}
-window.onload=startclock;
-// End -->
-</SCRIPT>	
-
 <body>
 <?php include('navfixed.php');?>
 <div class="container-fluid">
@@ -111,26 +77,25 @@ window.onload=startclock;
        <ul class="nav nav-list">
 					<h4>Inventory</span></h4>  
 					<hr>
-					<li><a href="index.php"><i class="icon-dashboard icon-2x"></i> Dashboard  </a></li> 
+					<li><a href="../index.php"><i class="icon-dashboard icon-2x"></i> Dashboard  </a></li> 
+					<li class="active"><a href="products.php"><i class="icon-list-alt icon-2x"></i> Inventory</a></li>    
+					<li><a href="purchase.php"><i class="icon-group icon-2x"></i> Purchase </a> </li>     
 					<li><a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><i class="icon-shopping-cart icon-2x"></i> Sales </a></li>             
-					<li class="active"><a href="products.php"><i class="icon-list-alt icon-2x"></i> Inventory</a></li>      
 					<li><a href="supplier.php"><i class="icon-group icon-2x"></i> Suppliers</a></li> 
-					<li><a href="purchase.php"><i class="icon-group icon-2x"></i> Purchase </a> </li>   
 				</ul>             
           </div><!--/.well -->
-        </div><!--/span-->
+  </div><!--/span-->
 	<div class="span10">
 	<div class="contentheader">
 			<i class="icon-table"></i> Products
-			</div>
-			<ul class="breadcrumb">
-			<li><a href="index.php">Dashboard</a></li> /
-			<li class="active">Products</li>
-			</ul>
+	</div>
+	<ul class="breadcrumb">
+	<li><a href="../index.php">Dashboard</a></li> /
+	<li class="active">Products</li>
+	</ul>
 
 
 <div style="margin-top: -19px; margin-bottom: 21px;">
-<a  href="index.php"><button class="btn btn-default btn-large" style="float: left;"><i class="icon icon-circle-arrow-left icon-large"></i> Back</button></a>
 			<?php 
 				$result = $db->prepare("SELECT * FROM products");
 				$result->execute();
@@ -158,15 +123,15 @@ window.onload=startclock;
 <table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
 	<thead>
 		<tr>
-			<th width="12%"> Product Code </th>
+			<th width="15%"> UPC </th>
 			<th width="14%"> Product Name </th>
 			<th width="13%"> Category / Description </th>
-			<th width="13%"> Location </th>
+			<th width="12%"> Position</th>
 			<th width="7%"> Supplier </th>
 			<th width="6%"> Unit Price </th>
-			<th width="6%"> Qty Onhand </th>
+			<th width="6%">Quantity Onhand </th>
 			<th width="8%"> Total Price</th>
-			<th width="8%"> Action </th>
+			<th width="10%"> Action </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -214,8 +179,9 @@ window.onload=startclock;
 			$total=$row['total_price'];
 			echo formatMoney($total, true);
 			?>
-			</td>			<td><a rel="facebox" title="Click to edit the product" href="editproduct.php?product_id=<?php echo $row['product_id']; ?>"><button class="btn btn-warning"><i class="icon-edit"></i> </button> </a>
-			<a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click to Delete the product"><button class="btn btn-danger"><i class="icon-trash"></i></button></a></td>
+			</td>			<td><a rel="facebox" title="Click to edit the product" href="editproduct.php?product_id=<?php echo $row['product_id']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a>
+			<a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click to Delete the product"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Delete</button></a>
+		</td>
 			</tr>
 			<?php
 				}
@@ -231,23 +197,18 @@ window.onload=startclock;
 </div>
 
 <script src="js/jquery.js"></script>
-  <script type="text/javascript">
+<script type="text/javascript">
 $(function() {
 
-
 $(".delbutton").click(function(){
-
 //Save the link in a variable called element
 var element = $(this);
-
 //Find the id of the link that was clicked
 var del_id = element.attr("id");
-
 //Built a url to send
 var info = 'id=' + del_id;
  if(confirm("Sure you want to delete this Product? There is NO undo!"))
 		  {
-
  $.ajax({
    type: "GET",
    url: "deleteproduct.php",
@@ -258,11 +219,8 @@ var info = 'id=' + del_id;
  });
          $(this).parents(".record").animate({ backgroundColor: "#fbc7c7" }, "fast")
 		.animate({ opacity: "hide" }, "slow");
-
  }
-
 return false;
-
 });
 
 });
