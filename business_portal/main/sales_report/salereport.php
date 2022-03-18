@@ -80,6 +80,9 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="text-center">
+                        <button onclick="window.print()" class= "btn btn-primary">Print</button>
+                        </div>
                     </div>
                 </div>
 
@@ -103,7 +106,7 @@
                             <tbody>
                             
                             <?php 
-                                $con = mysqli_connect("localhost","root","root", "vietstar_shippings");
+                                $con = mysqli_connect("localhost","root","root", "vietstar_shipping");
 
                                 if(isset($_GET['from_date']) && isset($_GET['to_date']))
                                 {

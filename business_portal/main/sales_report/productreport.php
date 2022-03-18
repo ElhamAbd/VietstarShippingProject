@@ -54,7 +54,7 @@
 	<div class="col-md-12">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h4>Inventory Sales Report</h4>
+                        <h4>Shipping Sales Report</h4>
                     </div>
                     <div class="card-body">
                     
@@ -84,7 +84,6 @@
                         <button onclick="window.print()" class= "btn btn-primary">Print</button>
                         </div>
                     </div>
-                    </div>
                 </div>
 
                 <div class="card mt-4">
@@ -92,12 +91,9 @@
                         <table class="table table-borderd">
                             <thead>
                                 <tr>
-                                    <th>Invoice number</th>
-                                    <th>MST</th>
-                                    <th>Payment Method</th>
-									<th>Amount</th>
-									<th>Sales Date</th>
-									<th>Discount</th>
+                                    <th>prduct name</th>
+                                    <th>number of product sold</th>
+
 
                                 </tr>
                             </thead>
@@ -111,7 +107,7 @@
                                     $from_date = $_GET['from_date'];
                                     $to_date = $_GET['to_date'];
 
-                                    $query = "SELECT * FROM sales WHERE sales_date BETWEEN '$from_date' AND '$to_date' ";
+                                    $query = "SELECT * FROM products WHERE send_date BETWEEN '$from_date' AND '$to_date' ";
                                     $query_run = mysqli_query($con, $query);
 
                                     if(mysqli_num_rows($query_run) > 0)
@@ -120,13 +116,8 @@
                                         {
                                             ?>
                                             <tr>
-                                                <td><?= $row['invoice_number']; ?></td>
                                                 <td><?= $row['mst']; ?></td>
-                                                <td><?= $row['sales_payment_method']; ?></td>
-												<td><?= $row['sales_amount']; ?></td>
-												<td><?= $row['sales_date']; ?></td>
-                                                <td><?= $row['sales_discount']; ?></td>
-
+                                                <td><?= $row['payment_method']; ?></td>
                                             </tr>
                                             <?php
                                         }
