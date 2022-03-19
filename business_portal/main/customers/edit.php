@@ -1,19 +1,25 @@
-    <?php 
-
-        require_once("connect.php");
-        $items['customer_id'] = $_GET['GetID'];
-        $query = " select * from records where customer_id='".$items['customer_id']."'";
-        $result = mysqli_query($con,$query);
-
-        while($row=mysqli_fetch_assoc($result))
-        {
-            $$customer_id = $row['$customer_id'];
-            $cust_name = $row['cust_name'];
-            $cust_email = $row['cust_email'];
-            $cust_phone = $row['cust_phone'];
-        }
-
+    
+    
+    <?php
+    include('connect.php');
+    ini_set('display_errors',1);
+    error_reporting(E_ALL);
     ?>
+        <?php
+        $id = $_GET['GetID'];
+            $query = "select * from customer where customer_id=:id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            $res = $stmt->execute();
+            if ($res) echo "Success";
+            else echo "Fail";
+            $customer = $stmt->fetch();
+            $customer_id = $customer['customer_id'];
+            $cust_name = $customer['cust_name'];
+            $cust_email = $customer['cust_email'];
+            $cust_phone = $customer['cust_phone'];
+
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +41,7 @@
 
                                 <form action="update.php?ID=<?php echo $customer_id ?>" method="post">
                                     <input type="text" class="form-control mb-2" placeholder=" User Name " name="name" value="<?php echo $cust_name ?>">
-                                    <input type="email" class="form-control mb-2" placeholder=" User Email " name="email" value="<?php echo $cust_mail ?>">
+                                    <input type="email" class="form-control mb-2" placeholder=" User Email " name="email" value="<?php echo $cust_email ?>">
                                     <input type="text" class="form-control mb-2" placeholder=" User Age " name="age" value="<?php echo $cust_phone ?>">
                                     <button class="btn btn-primary" name="update">Update</button>
                                 </form>
