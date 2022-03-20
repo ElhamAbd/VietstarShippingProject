@@ -189,7 +189,74 @@
                 </br></br> <h3>Item Descriptions</h3> </br></br>
 
                 <div class="row">
-                    <div class="item_desc">
+                    <div class="col-md-9">
+                        <label for="pkg1" class="form-label">Package 1</label>
+                        <input type="text" class="form-control" id="pkg1" name="pkg1" placeholder="Package 1 Item Descriptions" tabindex="15" required></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg1_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg1_weight" name="pkg1_weight" placeholder="Package 1 Weight" tabindex="16" required></input>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="pkg2" class="form-label">Package 2</label>
+                        <input type="text" class="form-control" id="pkg2" name="pkg2" placeholder="Package 2 Item Descriptions" tabindex="17"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg2_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg2_weight" name="pkg2_weight" placeholder="Package 2 Weight" tabindex="18"></input>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="pkg3" class="form-label">Package 3</label>
+                        <input type="text" class="form-control" id="pkg3" name="pkg3" placeholder="Package 3 Item Descriptions" tabindex="19"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg3_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg3_weight" name="pkg3_weight" placeholder="Package 3 Weight" tabindex="20"></input>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="pkg4" class="form-label">Package 4</label>
+                        <input type="text" class="form-control" id="pkg4" name="pkg4" placeholder="Package 4 Item Descriptions" tabindex="21"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg4_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg4_weight" name="pkg4_weight" placeholder="Package 4 Weight" tabindex="22"></input>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="pkg5" class="form-label">Package 5</label>
+                        <input type="text" class="form-control" id="pkg5" name="pkg5" placeholder="Package 5 Item Descriptions" tabindex="23"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg5_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg5_weight" name="pkg5_weight" placeholder="Package 5 Weight" tabindex="24"></input>
+                    </div>
+                    
+                    <!-- <div class="col-md-9">
+                        <label for="pkg6" class="form-label">Package 6</label>
+                        <input type="text" class="form-control" id="pkg6" name="pkg6" placeholder="Package 6 Item Descriptions" tabindex="25"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg6_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg6_weight" name="pkg6_weight" placeholder="Package 6 Weight" tabindex="26"></input>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="pkg7" class="form-label">Package 7</label>
+                        <input type="text" class="form-control" id="pkg7" name="pkg7" placeholder="Package 7 Item Descriptions" tabindex="27"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg7_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg7_weight" name="pkg7_weight" placeholder="Package 7 Weight" tabindex="28"></input>
+                    </div>
+                    <div class="col-md-9">
+                        <label for="pkg8" class="form-label">Package 8</label>
+                        <input type="text" class="form-control" id="pkg8" name="pkg8" placeholder="Package 8 Item Descriptions" tabindex="29"></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pkg8_weight" class="form-label">Weight (lbs)</label>
+                        <input type="text" class="form-control" id="pkg8_weight" name="pkg8_weight" placeholder="Package 8 Weight" tabindex="30"></input>
+                    </div> -->
+                    
+
+                    <!-- <div class="item_desc">
                         <label for="email_r" class="form-label">Items</label>
                         <textarea class="form-control" rows="5" cols="50" id="desc_items" name="desc_items" placeholder="List & describe items being shipped" tabindex="15"></textarea>
                     </div>
@@ -206,12 +273,30 @@
                             <option value="7">7</option>
                             <option value="8">8</option>
                         </select>
-                    </div> 
+                    </div>  -->
+
                 </div>
                 <div class="form_buttons">
                     <button class="btn btn-danger" id="reset_button" type="reset">Reset</button>
-                    <button class="btn btn-primary" id="submit_button" type="submit">Submit Shipping Form</button>
+                    <button class="btn btn-primary" id="submit_button" type="submit" data-bs-toggle="modal" data-bs-target="#submit_modal">Submit Shipping Form</button>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="submit_modal" tabindex="-1" aria-labelledby="modal_label" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal_label">Thank You!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">You have successfully submitted your shipping form</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </form>
 
@@ -237,12 +322,6 @@
             })();
             </script>
         -->
-
-        <script>
-            function validate () {
-                
-            }
-        </script>
 
     </div>
 </body>
