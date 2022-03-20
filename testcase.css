@@ -1,14 +1,178 @@
+/*Homepage*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
-.rows {
-    height: 100vh
+html, body{
+  height: 100%;
+  width: 100%;
+  font-family: poppins, sans-serif;
 }
-.bg-orange{
-    background-color: #f06141;
+.navbar1{
+  background-color: #A87102;
+}
+/*HEADER */
+#header{
+  
+  background-color: #f5a706;
+  /*border-bottom: #35424A 3PX solid;*/
+}
+#header h1{
+  color: #002522;
+  text-align: center;
+  font-size: 66px;
+  font-weight: 200;
+  font-family: 'Rye', cursive;
+  
+}
+.navbar{
+  margin-bottom: 0;
+}
+.navbar li span{
+  padding-left: 3px;
+}
+.carousel-item img{
+  width: 100%;
+  height: 100%;
+  
+}
+.padding{
+  padding-bottom: 2rem;
+}
+
+.navbar .navbar-nav li a{
+  color: #A87102;
+}
+.navbar .search-bar  .btn{
+  background-color: #A87102;
+  border: 1px solid #A87102;
+  color: #ffffff;
+}
+.navbar .search-bar  .btn:hover{
+  background-color: #f5a706;
+  border: 1px solid #f5a706;
+  color: #ffffff;
+}
+.navbar2-style{
+  color: #A87102;
+  box-shadow: 5px 5px 10px #efefef;
+}
+.carousel-caption{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+}
+.carousel-caption h1{
+  font-size: 500%;
+  text-shadow: 1px 1px 15px #000;
+  
+}
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 1px 1px 10px #000;
+  padding-top: 1rem;
+}
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+
+hr { 
+  background-color: #A87102; 
+  height: 1px; 
+  border: 0; 
+}
+.section-content .btn-secondary {
+  background-color: #f5a706;
+  border: 1px solid #f5a706;
+}
+.section-content .btn-secondary:hover{
+  background-color: #A87102;
+  border: 1px solid #A87102;
+}
+#google_element{
+  position: relative;
+}
+.translate{
+  background: #eee;
+}
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+/* rtl:end:ignore */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.aos-init p{
+ margin: 1rem;
+}
+#services{
+  
+  text-align: center;
+}
+.subtitle{
+  color: #A87102;
+}
+.cusResponse{
+  padding-top: 2rem;
+  color: #f5a706;
+}
+hr.light {
+ border-top: 1px solid;
 }
 #Register{
-    color: #f06141;
+    color: #EBA004;
 }
-@keyframes slide {
+.social a{
+  font-size: 2.5em;
+  padding: .5rem;
+}
+.bi-whatsapp:hover{
+  color: #25d366;
+}
+
+footer{
+  background-color: #343a40;
+  padding-bottom: 0;
+}
+
+footer  h6{
+  color: #f5A706;
+}
+footer ul li a{
+  color: #EBA004;
+}
+  @keyframes slide {
     0% {
       opacity: 0;
       transform: translateY(70%);
@@ -29,6 +193,7 @@
     }
   }
   @media screen and (max-width: 768px) {
+    
     .col-sm-4 {
       text-align: center;
       margin: 25px 0;
@@ -43,6 +208,37 @@
       font-size: 150px;
     }
   }
+  @media (max-width: 992px) {
+
+  }
+  @media (max-width: 768px) {
+    .carousel-caption {
+      top: 45%;
+    }
+    .carousel-caption h1 {
+      font-size: 250%;
+    }
+    .carousel-caption h3 {
+      font-size: 110%;
+      font-weight: 400;
+      padding-bottom: .2rem;
+    }
+  }
+  @media (max-width: 576px) {
+    .carousel-caption {
+      top: 40%;
+    }
+    .carousel-caption h1 {
+      font-size: 150%;
+    }
+    .carousel-caption h3 {
+      font-size: 70%;
+      
+    }
+  }
+
+
+
 .form-control {
     display: block;
     width: 100%;
@@ -59,14 +255,14 @@
     -moz-appearance: none;
     appearance: none;
     border-radius: 52px;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .card {
     padding: 20px;
     background-color: #eee;
     padding-bottom: 50px;
-    padding-top: 50px
+    padding-top: 50px;
 }
 
 .form-control:focus {
@@ -74,27 +270,317 @@
     background-color: #fff;
     border-color: #f9a826;
     outline: 0;
-    box-shadow: none
+    box-shadow: none;
 }
 
 .border-rad {
     border-top-right-radius: 28px;
     border-bottom-right-radius: 28px;
     color: #fff;
-    background-color: #f9a826;
-    border-color: #f9a826
+    background-color: #c0995a;
+    border-color: #f9a826;
 }
 
 .border-rad:hover {
     background-color: #f9a826;
-    border-color: #f9a826
+    border-color: #f9a826;
 }
 
 .location-text {
     text-align: center;
+    color: #f9a826;
 }
   
-footer {
-    font-size: 20px;
-    margin-bottom: 20px; 
+
+section {
+  padding: 60px 0;
+  overflow: hidden;
 }
+.section1 hr{
+ border-top: 4px solid #976501;
+ width: 40%;
+ margin: 0 auto;
+ margin-top: .3rem;
+ margin-bottom: 1rem;
+}
+.section-content h1{
+  color: #A87102;
+}
+
+.section-bg {
+  background-color: #f2f5fa;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color: #A87102;
+  font-family: "Poppins", sans-serif;
+}
+.section-title hr{
+  border-top: 4px solid #976501;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+ }
+.section-title p {
+  margin-bottom: 0;
+}
+/*--------------------------------------------------------------
+# Location
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Contact Us Page
+--------------------------------------------------------------*/
+.contact .info {
+  padding: 20px 40px;
+  background: #f1f3f6;
+  color: #f5a706;
+  text-align: center;
+  border: 1px solid #fff;
+}
+.contact .info i {
+  font-size: 48px;
+  color: #c0995a;
+  margin-bottom: 15px;
+}
+.contact .info h4 {
+  padding: 0;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+.contact .info p {
+  font-size: 15px;
+}
+.contact .php-email-form {
+  width: 100%;
+}
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .error-message br + br {
+  margin-top: 25px;
+}
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+.contact .php-email-form label {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 5px;
+  color: #8a8c95;
+}
+.contact .php-email-form input, .contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+  border-color: #f5a706;
+}
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+.contact .php-email-form button[type=submit] {
+  background: #fff;
+  border: 2px solid #f5a706;
+  padding: 10px 24px;
+  color: #f5a706;
+  transition: 0.4s;
+  border-radius: 50px;
+  margin-top: 5px;
+}
+.contact .php-email-form button[type=submit]:hover {
+  background: #f5a706;
+  color: #fff;
+}
+@media (max-width: 1024px) {
+  .contact .php-email-form {
+    padding: 30px 15px 15px 15px;
+  }
+}
+@media (max-width: 768px) {
+  .contact .php-email-form {
+    padding: 15px 0 0 0;
+  }
+}
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.wrapper {
+  margin-top: 30px
+}
+
+.card {
+  border: 1px solid #eee;
+  cursor: pointer
+}
+
+.weight {
+  margin-top: -65px;
+  transition: all 0.5s
+}
+
+.weight small {
+  color: #e2dede
+}
+
+.buttons {
+  padding: 10px;
+  background-color: #d6d4d44f;
+  border-radius: 4px;
+  position: relative;
+  margin-top: 7px;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.dot {
+  height: 14px;
+  width: 14px;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  left: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  color: #fff;
+  opacity: 0
+}
+
+.cart-button {
+  height: 48px
+}
+
+.cart-button:focus {
+  box-shadow: none
+}
+
+.cart {
+  position: relative;
+  height: 48px !important;
+  width: 50px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 11px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 1s ease-in-out;
+  overflow: hidden
+}
+
+.cart-button.clicked span.dot {
+  animation: item 0.3s ease-in forwards
+}
+
+@keyframes item {
+  0% {
+      opacity: 1;
+      top: 30%;
+      left: 30%
+  }
+
+  25% {
+      opacity: 1;
+      left: 26%;
+      top: 0%
+  }
+
+  50% {
+      opacity: 1;
+      left: 23%;
+      top: -22%
+  }
+
+  75% {
+      opacity: 1;
+      left: 19%;
+      top: -18%
+  }
+
+  100% {
+      opacity: 1;
+      left: 14%;
+      top: 28%
+  }
+}
+
+.card:hover .buttons {
+  opacity: 1
+}
+
+.card:hover .weight {
+  margin-top: 10px
+}
+
+.card:hover {
+  transform: scale(1.04);
+  z-index: 2;
+  overflow: hidden
+}
+
+.fa-shopping-cart{
+  color: #A87102;
+}
+
