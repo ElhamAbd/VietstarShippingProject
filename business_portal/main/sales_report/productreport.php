@@ -107,7 +107,7 @@
                                     $from_date = $_GET['from_date'];
                                     $to_date = $_GET['to_date'];
 
-                                    $query = "SELECT * FROM products WHERE send_date BETWEEN '$from_date' AND '$to_date' ";
+                                    $query = "SELECT pro.*,pur. from products pro, purchase pur where pro.product_id=pro.purchase_id AND SELECT * FROM purchase WHERE purchase_date BETWEEN '$from_date' AND '$to_date' ";
                                     $query_run = mysqli_query($con, $query);
 
                                     if(mysqli_num_rows($query_run) > 0)
@@ -116,8 +116,8 @@
                                         {
                                             ?>
                                             <tr>
-                                                <td><?= $row['mst']; ?></td>
-                                                <td><?= $row['payment_method']; ?></td>
+                                                <td><?= $row['product_name']; ?></td>
+                                                <td><?= $row['purchase_qty']; ?></td>
                                             </tr>
                                             <?php
                                         }

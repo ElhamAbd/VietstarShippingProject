@@ -8,8 +8,11 @@
 if(isset($_GET['Del']))
          {
             $customer_id = $_GET['Del'];
-             $query = " delete from customer where customer_id = '".$customer_id."'";
-             $result = mysqli_query($con,$query);
+             $query = " delete from customer where customer_id=:customer_id";
+             $stmt = $db->prepare($query);
+             $result = $stmt->execute(array(
+                 ':customer_id' => $customer_id
+             ));
              if($result)
              {
                  header("location:customer.php");

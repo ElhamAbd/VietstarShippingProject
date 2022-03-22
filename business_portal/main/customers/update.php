@@ -13,10 +13,16 @@
         $customer_id = $_GET['ID'];
         $cust_name = $_POST['name'];
         $cust_email = $_POST['email'];
-        $cust_phone = $_POST['PHONE'];
+        $cust_phone = $_POST['phone'];
 
-        $query = " update customer set cust_name = '".$cust_name."', cust_email='".$cust_email."',cust_phone='".$cust_phone."' where custom_id='".$customer_id."'";
-        $result = mysqli_query($con,$query);
+        $query = "update customer set cust_name=:cust_name, cust_email=:cust_email, cust_phone=:cust_phone where customer_id=:customer_id";  
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute(array(
+            ':cust_name' => $cust_name,
+            ':cust_email' => $cust_email,
+            ':cust_phone' => $cust_phone,
+            ':customer_id' => $customer_id
+        ));
 
         if($result)
         {

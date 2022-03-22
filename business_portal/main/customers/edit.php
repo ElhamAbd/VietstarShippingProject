@@ -42,7 +42,7 @@
                                 <form action="update.php?ID=<?php echo $customer_id ?>" method="post">
                                     <input type="text" class="form-control mb-2" placeholder=" User Name " name="name" value="<?php echo $cust_name ?>">
                                     <input type="email" class="form-control mb-2" placeholder=" User Email " name="email" value="<?php echo $cust_email ?>">
-                                    <input type="text" class="form-control mb-2" placeholder=" User Age " name="age" value="<?php echo $cust_phone ?>">
+                                    <input type="text" class="form-control mb-2" placeholder=" phone " name="phone" value="<?php echo $cust_phone ?>">
                                     <button class="btn btn-primary" name="update">Update</button>
                                 </form>
 
