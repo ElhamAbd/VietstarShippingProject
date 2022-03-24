@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,10 +38,88 @@
     .err { background: #ffe6ee; border: 1px solid #b1395f; }
     .emsg { color: #c12020; font-weight: bold; }
 </style>
+    <script>
 
+			function doSubmit()
+			{
+				alert("You have successfully submitted your shipping form");
+				return;
+				}
+			function validateName()
+			{
+				var name = document.shippingForm_BE.full_name.value;
+				if (name.length == 0) return false;
+				return true;
+			}
+			function validatePhone()
+			{
+				var phone = document.shippingForm_BE.num_of_package.value;
+				if (num_of_package.length == 0) return false;
+				return true;
+			}
+			function validateMail()
+			{
+				var mail = document.shippingForm_BE.mail.value;
+				if (mail.length == 0) return false;
+				return true;
+			}
+			function validateAddress()
+			{
+				var address = document.shippingForm_BE.address.value;
+				if (address.length == 0) return false;
+				return true;
+			}
+			function validateCity()
+			{
+				var city = document.shippingForm_BE.city.value;
+				if (city.length == 0) return false;
+				return true;
+			}
+			function validateZip()
+			{
+				var zip = document.shippingForm_BE.zip.value;
+				if (zip.length == 0) return false;
+				return true;
+			}
+			function validateState()
+			{
+				var state = document.shippingForm_BE.state.value;
+				if (state.length == 0) return false;
+				return true;
+			}
+            function validateState()
+			{
+				var state = document.shippingForm_BE.state.value;
+				if (state.length == 0) return false;
+				return true;
+			}
+            function validateState()
+			{
+				var state = document.shippingForm_BE.state.value;
+				if (state.length == 0) return false;
+				return true;
+			}
+            function validateState()
+			{
+				var state = document.shippingForm_BE.state.value;
+				if (state.length == 0) return false;
+				return true;
+			}function validateState()
+			{
+				var state = document.shippingForm_BE.state.value;
+				if (state.length == 0) return false;
+				return true;
+			}function validateState()
+			{
+				var state = document.shippingForm_BE.state.value;
+				if (state.length == 0) return false;
+				return true;
+			}
+    </script>
 </head>
 
 <body>
+
     <nav class="navbar1  p-md-1 navbar-style navbar-topbar navbar-expand-lg  navbar-dark text-light">
         <div class="container">
             <ul class="navbar-nav">
@@ -56,7 +135,7 @@
     
     <div id="header" class="p-md-4">
         
-        
+
         <h1>VIETSTAR SHIPPING & TRAVEL</h1>
     </div>
 
@@ -127,7 +206,7 @@
         </a>
     </div>
     <div class="container mt-5">
-        <form action="shippingForm_BE.php" method="POST" class="row g-5">
+        <form name= "shippingForm_BE" action="shippingForm_BE.php" method="POST" class="row g-5 needs-validation"> 
 
             <div class="col-md-6" id="sender_border">
                 <!-- Sender's information -->
@@ -137,23 +216,23 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <label for="first_name" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" tabindex="1" required>
+                        <label for="full_name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" tabindex="1" required>
                         <div id="emsg_first_name" class="emsg_first_name"></div>
                     </div>
                     <div class="col-md-6">
-                        <label for="last_name" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" tabindex="2" required>
+                        <label for="num_of_package" class="form-label">Number of Package</label>
+                        <input type="number" class="form-control" id="num_of_package" name="num_of_package" placeholder="1" tabindex="2" required>
                         <div id="emsg_last_name" class="emsg_last_name"></div>
                     </div>
                     <div class="col-md-12">
-                        <label for="address1" class="form-label">Address 1</label>
-                        <input type="text" class="form-control" id="address1" name="address1" placeholder="Address" tabindex="3" required>
+                        <label for="package_value" class="form-label">Package item value</label>
+                        <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Package Valued at" tabindex="3" required>
                         <div id="emsg_address1" class="emsg_address1"></div>
                     </div>
                     <div class="col-md-12">
-                        <label for="address2" class="form-label">Address 2</label>
-                        <input type="text" class="form-control" id="address2" name="address2" placeholder="Apt., PMB#, etc. (Optional)" tabindex="4">
+                        <label for="address1" class="form-label">Address 1</label>
+                        <input type="text" class="form-control" id="address1" name="address1" placeholder="Streer., Apt., PMB#, etc." tabindex="4" required>
                     </div>
                     <div class="col-md-4">
                         <label for="city" class="form-label">City</label>
@@ -225,13 +304,22 @@
                     </div>
                     <div class="col-md-8">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" tabindex="8" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="8" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                         <div id="emsg_email" class="emsg_email"></div>
                     </div>
                     <div class="col-md-4">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="9" required minlength="10">
+                        <input type="phone"class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="9" required minlength="10">
                         <div id="emsg_phone" class="emsg_phone"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="location" class="form-label">Send To</label>
+                        <select name="location" id="location" placeholder="Location"tabindex="10" required>
+                            <option value=""></option>
+                            <option value="Sài Gòn">Sài Gòn</option>
+                            <option value="Tỉnh (Province)">Tỉnh</option>
+                        </select>
+                        <div id="emsg_state" class="emsg_state"></div>
                     </div>
                 </div>
             </div>
@@ -244,14 +332,9 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <label for="first_name_r" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="first_name_r" name="first_name_r" placeholder="First Name" tabindex="10" required>
+                        <label for="full_name_r" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="full_name_r" name="full_name_r" placeholder="Full Name" tabindex="11" required>
                         <div id="emsg_first_name_r" class="emsg_first_name_r"></div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="last_name_r" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="last_name_r" name="last_name_r" placeholder="Last Name" tabindex="11" required>
-                        <div id="emsg_last_name_r" class="emsg_last_name_r"></div>
                     </div>
                     <div class="col-md-12">
                         <label for="address_r1" class="form-label">Address</label>
@@ -264,7 +347,12 @@
                     </div>
                     <div class="col-md-4">
                         <label for="phone_r" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone_r" name="phone_r" placeholder="Phone (Optional)" tabindex="14">
+                        <input type="text" class="form-control" id="phone_r" name="phone_r" placeholder="Phone " tabindex="14" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="send_date" class="form-label">Item Sending Date</label>
+                        <input type="date" class="form-control" id="send_date" name="send_date" placeholder="Item send date" tabindex="15" required>
+                        <div id="emsg_send_r1" class="emsg_send_r1"></div>
                     </div>
                 </div>
             </div>
@@ -319,7 +407,7 @@
                 </div>
                 <div class="form_buttons">
                     <button class="btn btn-danger" id="reset_button" type="reset">Reset</button>
-                    <button class="btn btn-primary" id="submit_button" type="submit" data-bs-toggle="modal" data-bs-target="#submit_modal">Submit Shipping Form</button>
+                    <button class="btn btn-primary" id="submit_button" type="submit">Submit Shipping Form</button>
                 </div>
 
                 <!-- Modal -->
@@ -332,7 +420,6 @@
                             </div>
                             <div class="modal-body">You have successfully submitted your shipping form</div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
                             </div>
                         </div>
                     </div>
