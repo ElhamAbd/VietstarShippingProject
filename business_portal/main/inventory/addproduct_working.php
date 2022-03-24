@@ -1,7 +1,36 @@
 <?php 
 include('../connect.php');
+include('function.php');
 require_once('auth.php');
+$position=$_SESSION['SESS_POSITION'];
+$name=$_SESSION['SESS_NAME'];
+$finalcode=createRandomPassword();
 ?>
+<html>
+<head>
+<title>Vietstar_Shipping</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/DT_bootstrap.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/style.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/navbar.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="jeffartagame.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+<link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="lib/jquery.js" type="text/javascript"></script>
+<script src="src/facebox.js" type="text/javascript"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox({
+      loadingImage : 'src/loading.gif',
+      closeImage   : 'src/closelabel.png'
+    })
+  })
+</script>
+</head>
+
+<body>
 	
 <form action="saveproduct.php" method="post" autocomplete="on" onSubmit="return formValidation();">
 	<center><h4><i class="icon-plus-sign icon-large"></i> Add Product</h4></center>
@@ -17,6 +46,7 @@ require_once('auth.php');
 	</datalist>
 	<span>Position: </span><input type="text" style="width:265px; height:30px;" name="product_location" ><br>
 	<span>Selling Price : </span><input type="text" id="unit_price" style="width:265px; height:30px;" name="unit_price" onkeyup="sum();" required/><br>
+	<!--<span>Quantity: </span><input type="number" style="width:265px; height:30px;" min="0" id="txt11" onkeyup="sum();" name="qty_onhand" Required ><br>-->
 	<span></span><input type="hidden" style="width:265px; height:30px;" id="txt22" name="qty_supplied" Required ><br>
 	<div style="float:right; margin-right:10px;">
 	<button class="btn btn-success btn-block btn-large" style="width:267px;">Submit</button>
@@ -59,6 +89,6 @@ $(document).ready(function(){
 
 });
 </script>
-<!--</body>
+</body>
 
-</html>-->
+</html>

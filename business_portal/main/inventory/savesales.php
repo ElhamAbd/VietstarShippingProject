@@ -1,8 +1,8 @@
 <?php
-/*require_once('auth.php');
+require_once('auth.php');
 $user_id=$_SESSION['SESS_MEMBER_ID'];
 $position=$_SESSION['SESS_POSITION'];
-$name=$_SESSION['SESS_NAME'];*/
+$name=$_SESSION['SESS_NAME'];
 
 include('../connect.php');
 $v1 = $_POST['invoice'];
@@ -17,8 +17,8 @@ else $v5 = $_POST['discount'];
 $v6 = $_POST['date']; // '2022-11-21'; Mysql format date(y-m-d) in PHP
 $v7 = $_POST['amount'];
 $v8 = '0';
-//$v9 = $user_id; // admin
-$v9 = '3'; // employee1
+$v9 = $user_id; 
+
 
 echo "Invoice: $v1 | Ptype: $v2 | Cname: $v3 | CPayment: $v4 |Total payment: $v5 |Sales Date: $v6 | Amt: $v7 |MST: $v8 | UserId: $v9  ";
 $sql = 'INSERT INTO `sales`(`invoice_number`,`sales_payment_method`, `sales_custname`, `sales_cust_payment`, `sales_discount`, `sales_date`, `sales_amount`, `mst`, `user_id`) VALUES (:v1,:v2,:v3,:v4,:v5,:v6,:v7,:v8,:v9)';
