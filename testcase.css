@@ -29,6 +29,11 @@ html, body{
 .navbar li span{
   padding-left: 3px;
 }
+.navbar .social ul li a{
+    
+    color: #EBA004;
+  }
+
 .carousel-item img{
   width: 100%;
   height: 100%;

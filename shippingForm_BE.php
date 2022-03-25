@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    include('./connect.php');
+
     // grabs sender input data
     $full_name = $_POST['full_name'];
     $num_of_package = $_POST['num_of_package'];
@@ -23,7 +26,7 @@
     $pkg1_weight = $_POST['pkg1_weight'];
   
     
-    if (!empty($full_name) || !empty($num_of_package)|| !empty($package_value)|| !empty($address1 )|| !empty($city)|| !empty($zip_code)|| !empty($state)|| !empty($email)
+   /* if (!empty($full_name) || !empty($num_of_package)|| !empty($package_value)|| !empty($address1 )|| !empty($city)|| !empty($zip_code)|| !empty($state)|| !empty($email)
     || !empty($phone)|| !empty($location)|| !empty($full_name_r)|| !empty($address_r1) || !empty($phone_r)|| !empty($send_date)|| !empty($pkg1)) 
     {
         $host ="localhost";
@@ -31,7 +34,7 @@
         $dbPassword = "root";
         $dbname = "vietstar_shipping";
 
-        $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+        $conn = new PDO("mysql:host=localhost;dbname=vietstar_shipping", 'root', '');
 
         if (mysqli_connect_error()) {
             die('connect error('. mysqli_connect_errno() . ')'. mysqli_connect_error())
@@ -69,34 +72,31 @@
     }else {
         echo "All field are required";
         die();
-    }
+    */
 
         
-      /*  $query = 'INSERT INTO `temp_shipping_order`(`num_of_package`, `package_value`, `location`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_phone`, `cust_email`, `recipient_name`, `recipient_address`, `recipient_phone`, `recipient_email`, `submitted_date`, `package_desc`) 
+       $query = 'INSERT INTO `temp_shipping_order`(`num_of_package`, `package_value`, `location`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_phone`, `cust_email`, `recipient_name`, `recipient_address`, `recipient_phone`, `recipient_email`, `submitted_date`, `package_desc`) 
                     VALUES (:v1, :v2, :v3, :v4, :v5, :v6, :v7,:v8, :v9, :v10, :v11, :v12, :v13, :v14, :v15, :v16)';
-        $stmt = $conn->prepare($query);
+        $stmt = $db->prepare($query);
         $res = $stmt->execute(array(
-          ':v1' => $num_of_package,
-          ':v2' => $package_value,
-          ':v3' => $location, 
-          ':v4' => $full_name,
-          ':v5' => $address1,
-          ':v6' => $city,
-          ':v7' => $state,
-          ':v8' => $zip_code,
-           ':v9' => $phone,
-           ':v10' => $email,
-           ':v11' => $full_name_r,
-           ':v12'=> $address_r1,
-           ':v13' => $phone_r,
-           ':v14' => $email_r,
-           ':v15' => $send_date,
-           ':v16' => $pkg1
-           
-        ));
-      
+          ':v1' =>$num_of_package,
+          ':v2' =>$package_value,
+          ':v3' =>$location, 
+          ':v4' =>$full_name,
+          ':v5' =>$address1,
+          ':v6' =>$city,
+          ':v7' =>$state,
+          ':v8' =>$zip_code,
+           ':v9' =>$phone,
+           ':v10' =>$email,
+           ':v11' =>$full_name_r,
+           ':v12'=>$address_r1,
+           ':v13' =>$phone_r,
+           ':v14' =>$email_r,
+           ':v15' =>$send_date,
+           ':v16' =>$pkg1
+           ));
+        header("location: shipping.php");
         if ($res) echo '<br>Success<br>';
         else echo '<br>Fail<br>';
-        $stmt->closeCursor(); 
- */
 ?>
