@@ -157,7 +157,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./cusHomepage.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -165,8 +165,8 @@
                             Shipping
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Shipping Form</a></li>
-                            <li><a class="dropdown-item" href="#">Custom Fees</a></li>
+                            <li><a class="dropdown-item" href="./shipping.php">Shipping Form</a></li>
+                            <li><a class="dropdown-item" href="./customFees.html">Custom Fees</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -365,45 +365,13 @@
                 <div class="row">
                     <div class="col-md-9">
                         <label for="pkg1" class="form-label">Package 1</label>
-                        <input type="text" class="form-control" id="pkg1" name="pkg1" placeholder="Package 1 Item Descriptions" tabindex="15" required></input>
+                        <textarea class="form-control" rows="6" cols="50"  id="pkg1" name="pkg1" placeholder="Package 1 Item Descriptions" tabindex="15"required></textarea>
                     </div>
                     <div class="col-md-3">
                         <label for="pkg1_weight" class="form-label">Weight (lbs)</label>
                         <input type="text" class="form-control" id="pkg1_weight" name="pkg1_weight" placeholder="Package 1 Weight" tabindex="16" required></input>
                     </div>
-                    <div class="col-md-9">
-                        <label for="pkg2" class="form-label">Package 2</label>
-                        <input type="text" class="form-control" id="pkg2" name="pkg2" placeholder="Package 2 Item Descriptions" tabindex="17"></input>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="pkg2_weight" class="form-label">Weight (lbs)</label>
-                        <input type="text" class="form-control" id="pkg2_weight" name="pkg2_weight" placeholder="Package 2 Weight" tabindex="18"></input>
-                    </div>
-                    <div class="col-md-9">
-                        <label for="pkg3" class="form-label">Package 3</label>
-                        <input type="text" class="form-control" id="pkg3" name="pkg3" placeholder="Package 3 Item Descriptions" tabindex="19"></input>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="pkg3_weight" class="form-label">Weight (lbs)</label>
-                        <input type="text" class="form-control" id="pkg3_weight" name="pkg3_weight" placeholder="Package 3 Weight" tabindex="20"></input>
-                    </div>
-                    <div class="col-md-9">
-                        <label for="pkg4" class="form-label">Package 4</label>
-                        <input type="text" class="form-control" id="pkg4" name="pkg4" placeholder="Package 4 Item Descriptions" tabindex="21"></input>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="pkg4_weight" class="form-label">Weight (lbs)</label>
-                        <input type="text" class="form-control" id="pkg4_weight" name="pkg4_weight" placeholder="Package 4 Weight" tabindex="22"></input>
-                    </div>
-                    <div class="col-md-9">
-                        <label for="pkg5" class="form-label">Package 5</label>
-                        <input type="text" class="form-control" id="pkg5" name="pkg5" placeholder="Package 5 Item Descriptions" tabindex="23"></input>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="pkg5_weight" class="form-label">Weight (lbs)</label>
-                        <input type="text" class="form-control" id="pkg5_weight" name="pkg5_weight" placeholder="Package 5 Weight" tabindex="24"></input>
-                    </div>
-
+                    
                 </div>
                 <div class="form_buttons">
                     <button class="btn btn-danger" id="reset_button" type="reset">Reset</button>
