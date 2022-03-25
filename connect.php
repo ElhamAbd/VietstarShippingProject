@@ -16,8 +16,3 @@
 
   
 ?>
-
-
-<?php
-include 'connect.php';
-?>
