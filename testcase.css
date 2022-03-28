@@ -596,3 +596,16 @@ table th {
 .center-text {
   text-align: center;
 }
+
+.our_mission_page_container {
+  margin: 5%;
+  
+}
+
+.justify {
+  text-align: justify;
+}
+
+.center-pic {
+  align-items: center;
+}
