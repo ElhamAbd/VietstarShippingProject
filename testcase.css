@@ -368,78 +368,7 @@ section {
 .contact .info p {
   font-size: 15px;
 }
-.contact .php-email-form {
-  width: 100%;
-}
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-.contact .php-email-form .error-message br + br {
-  margin-top: 25px;
-}
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-.contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-.contact .php-email-form label {
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 5px;
-  color: #8a8c95;
-}
-.contact .php-email-form input, .contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-  border-color: #f5a706;
-}
-.contact .php-email-form input {
-  padding: 10px 15px;
-}
-.contact .php-email-form textarea {
-  padding: 12px 15px;
-}
-.contact .php-email-form button[type=submit] {
-  background: #fff;
-  border: 2px solid #f5a706;
-  padding: 10px 24px;
-  color: #f5a706;
-  transition: 0.4s;
-  border-radius: 50px;
-  margin-top: 5px;
-}
-.contact .php-email-form button[type=submit]:hover {
-  background: #f5a706;
-  color: #fff;
-}
+
 @media (max-width: 1024px) {
   .contact .php-email-form {
     padding: 30px 15px 15px 15px;
@@ -467,7 +396,7 @@ section {
   }
 }
 
-
+/* Hot items page */
 .wrapper {
   margin-top: 30px
 }
@@ -537,6 +466,61 @@ section {
 
 .cart-button.clicked span.dot {
   animation: item 0.3s ease-in forwards
+}
+
+.product-name {
+  font-weight: 700;
+  text-decoration: underline;
+  }
+  
+  .product-price,
+  .cart_item_price {
+  font-style: oblique;
+  font-family: cursive;
+  }
+  
+  .product-img {
+  max-width: 140px;
+  margin: 0 auto;
+  }
+  
+  .card {
+  border: 1px dashed grey;
+  
+  
+  }
+  
+  .btn:disabled {
+  opacity: 0.5;
+  }
+  
+  h4 {
+  font-family: cursive;
+  }
+  
+  .cart_item_name {
+  font-weight: 700;
+  }
+  
+  .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(192, 192, 192, 0.1);
+  font-family: cursive;
+  font-size: xx-large;
+  cursor: wait;
+  letter-spacing: 0.05em;
+  text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
+  }
+
+#filterDive{
+  display: none;
 }
 
 @keyframes item {
@@ -677,3 +661,4 @@ table th {
 .center-text {
   text-align: center;
 }
+

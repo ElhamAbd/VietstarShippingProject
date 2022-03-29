@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+
+
 
 <body>
     <nav class="navbar1  p-md-1 navbar-style navbar-topbar navbar-expand-lg  navbar-dark text-light">
@@ -87,13 +90,9 @@
                     </li>
 
                 </ul>
-                <form class="d-flex search-bar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
                 <li class="cart">
                     <a href="cart.html">
-                        <i class="fa fa-shopping-cart"></i><span>0</span>
+                        <i class="fa fa-shopping-cart"></i><span class="total-items-in-cart">0</span>
                     </a>
                 </li>
 
@@ -102,71 +101,69 @@
     </nav>
 
     <!--Navigation Bar ends-->
+    <!-- Carousel start-->
+ <div id="carousel" class="carousel slide py-3" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./Assets/HOTITEM.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+<!--Carousal ends-->
     <h1 class="text-center">Items Sold In Store</h1>
     <div class="wrapper">
-        <div class="container">
-            <div id="myBtnContainer">
-                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                <button class="btn" onclick="filterSelection('vitSupplement')"> Vitamin Suppliments</button>
-                <button class="btn" onclick="filterSelection('cannedFood')"> Canned Food</button>
-                <button class="btn" onclick="filterSelection('Snacks')"> Snacks</button>
-                <button class="btn" onclick="filterSelection('medicine')"> Medicine</button>
-              </div>
+        <div class="container products-list">
+              <hr>
             <div class="row g-1">
-                <div class="col-md-3 " id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center">
-                            <img src="./Assets/hotItems/Vitafusion.jpeg" width="200">
-                        </div>
-                        <div class="product-details"><span>Vitafusion Multivitamin</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/nature's bounty zinc.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Nature's Bounty Zinc</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
-                                <button class="btn btn-success cart-button btn-block">
-                                    <span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="./Assets/hotItems/naturesBountyHairskingummy.jpeg" width="200"> </div>
-                        <div class="product-details"><span>Nature's Bounty Multivitamin</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/vaselin.jpeg" width="200"> </div>
+                        <div class="product-details"> <span class="title">Vaseline</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
-                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                            <div class="weight"> <small>20 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
                         <div class="text-center"> <img src="./Assets/hotItems/eagleBrand.jpeg" width="200"> </div>
-                        <div class="product-details"><span>Eagle's Brand Medicated Oil</span>
+                        <div class="product-details"><span class="title">Eagle's Brand Medicated Oil</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block " data-action="add-to-cart"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"id="filterDiv vitSupplement ">
+                <div class="col-md-3">
                     <div class="card p-3">
-                        <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
-                        <div class="product-details"><span>Red Redish</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/youththeory_collegen.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Youththeory Collegen + Biotin</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block" data-action="add-to-cart"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>20 piece 2.5kg</small> </div>
@@ -175,60 +172,56 @@
                 </div>
             </div>
             <div class="row g-1">
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
                         <div class="text-center">
-                            <img src="./Assets/hotItems/Vitafusion.jpeg" width="200">
+                            <img src="./Assets/hotItems/advil.webp" width="200">
                         </div>
-                        <div class="product-details"><span>Vitafusion Multivitamin</span>
+                        <div class="product-details"><span class="title">Advil</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
-                                <button class="btn btn-success cart-button btn-block">
-                                    <span class="dot">1</span>Add to cart
+                                <button class="btn btn-success cart-button btn-block" data-action="add-to-cart">
+                                    <span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="./Assets/hotItems/naturesBountyHairskingummy.jpeg" width="200"> </div>
-                        <div class="product-details"><span>Nature's Bounty Multivitamin</span>
+                        <div class="text-center">
+                            <img src="./Assets/hotItems/whiteflower_strainrelief.jpg" width="200">
+                        </div>
+                        <div class="product-details"> <span class="title">White Flower Strain Relief</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="./Assets/hotItems/eagleBrand.jpeg" width="200"> </div>
-                        <div class="product-details"><span>Eagle's Brand Medicated Oil</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/crest.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Crest Toothpaste</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" class="filterDiv snack ">
                     <div class="card p-3">
-                        <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
-                        <div class="product-details"><span>Red Redish</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/ferrerorocher.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Ferrero Rocher Collection</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>20 piece 2.5kg</small> </div>
@@ -237,60 +230,54 @@
                 </div>
             </div>
             <div class="row g-1">
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
                         <div class="text-center">
-                            <img src="./Assets/hotItems/Vitafusion.jpeg" width="200">
+                            <img src="./Assets/hotItems/kirkland_childrenMultivitamin.jpg" width="200">
                         </div>
-                        <div class="product-details"><span>Vitafusion Multivitamin</span>
+                        <div class="product-details"><span class="title">Kirkland Children Multivitamin</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
                                 <button class="btn btn-success cart-button btn-block">
-                                    <span class="dot">1</span>Add to cart
+                                    <span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="./Assets/hotItems/naturesBountyHairskingummy.jpeg" width="200"> </div>
-                        <div class="product-details"><span>Nature's Bounty Multivitamin</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/lifesaver_hardcandy.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Life Saver Hard Candy</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="./Assets/hotItems/eagleBrand.jpeg" width="200"> </div>
-                        <div class="product-details"><span>Eagle's Brand Medicated Oil</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/vitafusion_multivites.jpg" width="200"> </div>
+                        <div class="product-details"> <span class="title">Vitafusion MultiVitamin</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
-                        <div class="product-details"><span>Red Redish</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/m&ms.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">M&Ms Chocolate</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>20 piece 2.5kg</small> </div>
@@ -299,66 +286,179 @@
                 </div>
             </div>
             <div class="row g-1">
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="https://i.imgur.com/w2rCsEw.jpg" width="200"> </div>
-                        <div class="product-details"> <span>Red Redish</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/mixedcrackers.jpeg" width="200"> </div>
+                        <div class="product-details"> <span class="title">Hapi Mixed Crackers</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
                         <div class="text-center">
-                            <img src="https://i.imgur.com/ZRUetRF.jpg" width="200">
+                            <img src="./Assets/hotItems/NatureBountyFishOil.jpeg" width="200">
                         </div>
-                        <div class="product-details"> <span>Red Redish</span>
+                        <div class="product-details"> <span class="title">Nature's Bounty Fish Oil</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="https://i.imgur.com/0M7pldG.jpg" width="200"> </div>
-                        <div class="product-details"><span>Red Redish</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/one1a day_womenMulti.webp" width="200"> </div>
+                        <div class="product-details"><span class="title">One a Day Women's Multi</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" id="filterDiv vitSupplement ">
+                <div class="col-md-3" >
                     <div class="card p-3">
-                        <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
-                        <div class="product-details"> <span>Red Redish</span>
+                        <div class="text-center"> <img src="./Assets/hotItems/salonpas_painrelief.jpeg" width="200"> </div>
+                        <div class="product-details"> <span class="title">Salonpas Pain Relief Patch</span>
                             <div class="buttons d-flex flex-row">
-                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
-                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
                                 </button>
                             </div>
                             <div class="weight"> <small>20 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col-md-3" >
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/springvalley_fishoil.webp" width="200"> </div>
+                        <div class="product-details"> <span class="title">Spring Valley Fish Oil</span>
+                            <div class="buttons d-flex flex-row">
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="card p-3">
+                        <div class="text-center">
+                            <img src="./Assets/hotItems/sunmaid_raisins.jpeg" width="200">
+                        </div>
+                        <div class="product-details"> <span class="title">Sun-maid Raisins</span>
+                            <div class="buttons d-flex flex-row">
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 " >
+                    <div class="card p-3">
+                        <div class="text-center">
+                            <img class="product-img"src="./Assets/hotItems/vitafusion_multivitamin.jpg" width="200">
+                        </div>
+                        <div class="product-details"><span class="title">Vitafusion Women Multivitamin</span>
+                            <div class="buttons d-flex flex-row">
+                                <button class="btn btn-success cart-button btn-block" data-action="add-to-cart">
+                                    <span class="dot">1</span>Available in Store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="card p-3">
+                        <div class="text-center"> <img class="product-img"src=".//Assets/hotItems/nature'sbounty_hairnail.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Nature's Bounty Multivitamin</span>
+                            <div class="buttons d-flex flex-row">
+                                 <button
+                                    class="btn btn-success cart-button btn-block" data-action="add-to-cart"><span class="dot">1</span>Available in store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col-md-3" >
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/longevityoil.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Longevity Medicated Oil</span>
+                            <div class="buttons d-flex flex-row">
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="card p-3">
+                        <div class="text-center"> <img class="product-img"src="./Assets/hotItems/tylenol.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Tylenol</span>
+                            <div class="buttons d-flex flex-row">
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3" >
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/resistanceC_vitaminc.jpg" width="200"> </div>
+                        <div class="product-details"> <span class="title">Resistance C Vitamin C</span>
+                            <div class="buttons d-flex flex-row">
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>20 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/bengay_cream.jpg" width="200"> </div>
+                        <div class="product-details"><span class="title">Bengay Cream</span>
+                            <div class="buttons d-flex flex-row">
+                                 <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Available in store
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
+        <p class="center-text"><a href="./hotItems.html">Back to Top</a></p>>
+    </div>  
+   
     <div id="google-element"></div>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
         style="color: #474747;"></script>
@@ -367,71 +467,6 @@
             new google.translate.TranslateElement("google_element");
         }
     </script>
-
-        <script>
-                    filterSelection("all")
-            function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("filterDiv");
-            if (c == "all") c = "";
-            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-            for (i = 0; i < x.length; i++) {
-                w3RemoveClass(x[i], "show");
-                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-            }
-            }
-
-            // Show filtered elements
-            function w3AddClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                if (arr1.indexOf(arr2[i]) == -1) {
-                element.className += " " + arr2[i];
-                }
-            }
-            }
-
-            // Hide elements that are not selected
-            function w3RemoveClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                while (arr1.indexOf(arr2[i]) > -1) {
-                arr1.splice(arr1.indexOf(arr2[i]), 1);
-                }
-            }
-            element.className = arr1.join(" ");
-            }
-
-            // Add active class to the current control button (highlight it)
-            var btnContainer = document.getElementById("myBtnContainer");
-            var btns = btnContainer.getElementsByClassName("btn");
-            for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-            }
-        </script>
-    <script src="shopping.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <Script>
-        $("#click-me").click(function () {
-            $("#show").toggle("slow", function () {
-            });
-        });
-
-        $(".x").click(function () {
-            $(".container").toggle("slow", function () {
-                // Animation complete.  
-            });
-        });
-    </Script>
 </body>
 <footer class="footer-long">
     <div class="mt-5 p-lg-5 text-black-50 text-center container-fluid">
