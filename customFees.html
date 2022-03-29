@@ -105,10 +105,32 @@
     </nav>
     
     <!--Navigation Bar ends-->
+
+ <!-- Carousel start-->
+ <div id="carousel" class="carousel slide py-3" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./Assets/custom fees-unsplash.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 id="services">Custom Fees</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Carousal ends-->
+
+
+
+
+
+
     <!-- Begin Custom Fees Table -->
 
     </br></br>
-    <h1 id="services">Custom Fees</h1>
+    
     </br>
     <p class="center-text"><b>**Attention!</b> Please check with the store for the latest updates on custom fees or for items not listed.</p>
     <p class="center-text">For the store's contact information & location, please visit our <a href="./contactUs.html">Contact Us</a> page.</p>
@@ -116,7 +138,8 @@
     </br>
 
     <div class="custom-fees-table">
-        <table class="table table-striped">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Items.." title="Type in a name">
+        <table class="table table-striped" id="myTable">
             <thead>
                 <tr>
                     <th scope="col">Product Name</th>
@@ -322,6 +345,29 @@
     </br>
     <p class="center-text"><a href="./customFees.html">Back to Top</a></p>>
 
+
+    <script>
+        function myFunction() {
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }       
+          }
+        }
+        </script>
+
+
 </body>
 <footer class="footer-long">
     <div class="mt-5 p-lg-5 text-black-50 text-center container-fluid">
@@ -430,8 +476,7 @@
                 <p>Copyright &copy; 2022 VIETSTAR SHIPPING</p>
             </div>
             <div class="col-md-6 text-md-end">
-                <a href="./Assets/Quy Trinh Xu Li Khieu Nai (Reimbursement Process).docx"
-                    class="text-light">Reimbursement Process</a>
+                <a href="./Assets/Reimbersement.pdf"class="text-light">Reimbursement Process</a>
                 <span class="text-muted mx-2">|</span>
                 <a href="./Assets/Điểu khoản gửi hàng (Shipping Policies).pdf" class="text-light">Shipping
                     Policy</a>

@@ -7,7 +7,7 @@ html, body{
   font-family: poppins, sans-serif;
 }
 .navbar1{
-  background-color: #A87102;
+  background-color: #0c0b09c9;
 }
 /*HEADER */
 #header{
@@ -607,30 +607,7 @@ section {
   font-size: large;
   text-align: center;
 }
-/*
-.container1-1 {
-  float: left;
-  border-right: 2px solid black;
-  padding: 50px;
-  margin-left: 100px;
-  width: 43.4%;
-}
 
-.container1-2 {
-  float: right;
-  border: 2px solid black;
-  padding: 50px;
-  margin-right: 100px;
-  width: 43.4%;
-}
-
-.container1-3 {
-  float: bottom;
-  top: 100px;
-  border-top: 3px solid black;
-  margin: 100px;
-}
-*/
 input[type=text] {
   width: 100%;
   padding: 12px 20px;
@@ -641,18 +618,7 @@ input[type=text] {
   border-radius: 4px;
   box-sizing: border-box;
 }
-/*
-input[type=email] {
-  width: 100%;
-  padding: 12px 20px;
-  margin-top: 0px;
-  margin-bottom: 24px;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-*/
+
 #sender_border {
   border-right: 3px solid black;
 }
@@ -695,7 +661,6 @@ h3 {
 #num_boxes {
   margin-top: 8px;
 }
-
 
 
 

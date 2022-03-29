@@ -105,8 +105,15 @@
     <h1 class="text-center">Items Sold In Store</h1>
     <div class="wrapper">
         <div class="container">
+            <div id="myBtnContainer">
+                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                <button class="btn" onclick="filterSelection('vitSupplement')"> Vitamin Suppliments</button>
+                <button class="btn" onclick="filterSelection('cannedFood')"> Canned Food</button>
+                <button class="btn" onclick="filterSelection('Snacks')"> Snacks</button>
+                <button class="btn" onclick="filterSelection('medicine')"> Medicine</button>
+              </div>
             <div class="row g-1">
-                <div class="col-md-3">
+                <div class="col-md-3 " id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center">
                             <img src="./Assets/hotItems/Vitafusion.jpeg" width="200">
@@ -127,7 +134,7 @@
 
 
 
-                <div class="col-md-3">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center"> <img src="./Assets/hotItems/naturesBountyHairskingummy.jpeg" width="200"> </div>
                         <div class="product-details"><span>Nature's Bounty Multivitamin</span>
@@ -140,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center"> <img src="./Assets/hotItems/eagleBrand.jpeg" width="200"> </div>
                         <div class="product-details"><span>Eagle's Brand Medicated Oil</span>
@@ -153,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3"id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
                         <div class="product-details"><span>Red Redish</span>
@@ -168,7 +175,131 @@
                 </div>
             </div>
             <div class="row g-1">
-                <div class="col-md-3">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center">
+                            <img src="./Assets/hotItems/Vitafusion.jpeg" width="200">
+                        </div>
+                        <div class="product-details"><span>Vitafusion Multivitamin</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <button class="btn btn-success cart-button btn-block">
+                                    <span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3" id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/naturesBountyHairskingummy.jpeg" width="200"> </div>
+                        <div class="product-details"><span>Nature's Bounty Multivitamin</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/eagleBrand.jpeg" width="200"> </div>
+                        <div class="product-details"><span>Eagle's Brand Medicated Oil</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
+                        <div class="product-details"><span>Red Redish</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>20 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center">
+                            <img src="./Assets/hotItems/Vitafusion.jpeg" width="200">
+                        </div>
+                        <div class="product-details"><span>Vitafusion Multivitamin</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <button class="btn btn-success cart-button btn-block">
+                                    <span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3" id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/naturesBountyHairskingummy.jpeg" width="200"> </div>
+                        <div class="product-details"><span>Nature's Bounty Multivitamin</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="./Assets/hotItems/eagleBrand.jpeg" width="200"> </div>
+                        <div class="product-details"><span>Eagle's Brand Medicated Oil</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>1 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="filterDiv vitSupplement ">
+                    <div class="card p-3">
+                        <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
+                        <div class="product-details"><span>Red Redish</span>
+                            <div class="buttons d-flex flex-row">
+                                <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button
+                                    class="btn btn-success cart-button btn-block"><span class="dot">1</span>Add to cart
+                                </button>
+                            </div>
+                            <div class="weight"> <small>20 piece 2.5kg</small> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center"> <img src="https://i.imgur.com/w2rCsEw.jpg" width="200"> </div>
                         <div class="product-details"> <span>Red Redish</span>
@@ -181,7 +312,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center">
                             <img src="https://i.imgur.com/ZRUetRF.jpg" width="200">
@@ -196,7 +327,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center"> <img src="https://i.imgur.com/0M7pldG.jpg" width="200"> </div>
                         <div class="product-details"><span>Red Redish</span>
@@ -209,7 +340,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" id="filterDiv vitSupplement ">
                     <div class="card p-3">
                         <div class="text-center"> <img src="https://i.imgur.com/emb60L5.jpg" width="200"> </div>
                         <div class="product-details"> <span>Red Redish</span>
@@ -237,24 +368,55 @@
         }
     </script>
 
-    <!--<script>
-          document.addEventListener("DOMContentLoaded", function(event) {
+        <script>
+                    filterSelection("all")
+            function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+            }
 
+            // Show filtered elements
+            function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+                }
+            }
+            }
 
-            const cartButtons = document.querySelectorAll('.cart-button');
+            // Hide elements that are not selected
+            function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+            }
 
-            cartButtons.forEach(button => {
-
-            button.addEventListener('click',cartClick);
-
-        });
-
-        function cartClick(){
-            let button =this;
-        button.classList.add('clicked');
-        }
-        });
-      </script>-->
+            // Add active class to the current control button (highlight it)
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+            }
+        </script>
     <script src="shopping.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -386,8 +548,7 @@
                 <p>Copyright &copy; 2022 VIETSTAR SHIPPING</p>
             </div>
             <div class="col-md-6 text-md-end">
-                <a href="./Assets/Quy Trinh Xu Li Khieu Nai (Reimbursement Process).docx"
-                    class="text-light">Reimbursement Process</a>
+                <a href="./Assets/Reimbersement.pdf"class="text-light">Reimbursement Process</a>
                 <span class="text-muted mx-2">|</span>
                 <a href="./Assets/Điểu khoản gửi hàng (Shipping Policies).pdf" class="text-light">Shipping
                     Policy</a>

@@ -1,7 +1,10 @@
 <?php
     session_start();
     include('./connect.php');
-
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+?>
+<?php
     // grabs sender input data
     $full_name = $_POST['full_name'];
     $num_of_package = $_POST['num_of_package'];
@@ -19,7 +22,7 @@
     $address_r1 = $_POST['address_r1'];
     $email_r = $_POST['email_r'];
     $phone_r = $_POST['phone_r'];
-    $send_date = $_POST['send_date']
+    $send_date = date("Y-m-d");
 
     // grabs item description input data
     $pkg1 = $_POST['pkg1'];
@@ -99,4 +102,8 @@
         header("location: shipping.php");
         if ($res) echo '<br>Success<br>';
         else echo '<br>Fail<br>';
+?>
+<?php
+    echo $num_of_package;
+
 ?>

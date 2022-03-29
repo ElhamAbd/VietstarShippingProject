@@ -39,85 +39,23 @@ include('./connect.php');
 <style>
     .err { background: #ffe6ee; border: 1px solid #b1395f; }
     .emsg { color: #c12020; font-weight: bold; }
-</style>
-    <script>
+</style> 
+<script>
 
-			function doSubmit()
-			{
-				alert("You have successfully submitted your shipping form");
-				return;
-				}
-			function validateName()
-			{
-				var name = document.shippingForm_BE.full_name.value;
-				if (name.length == 0) return false;
-				return true;
-			}
-			function validatePhone()
-			{
-				var phone = document.shippingForm_BE.num_of_package.value;
-				if (num_of_package.length == 0) return false;
-				return true;
-			}
-			function validateMail()
-			{
-				var mail = document.shippingForm_BE.mail.value;
-				if (mail.length == 0) return false;
-				return true;
-			}
-			function validateAddress()
-			{
-				var address = document.shippingForm_BE.address.value;
-				if (address.length == 0) return false;
-				return true;
-			}
-			function validateCity()
-			{
-				var city = document.shippingForm_BE.city.value;
-				if (city.length == 0) return false;
-				return true;
-			}
-			function validateZip()
-			{
-				var zip = document.shippingForm_BE.zip.value;
-				if (zip.length == 0) return false;
-				return true;
-			}
-			function validateState()
-			{
-				var state = document.shippingForm_BE.state.value;
-				if (state.length == 0) return false;
-				return true;
-			}
-            function validateState()
-			{
-				var state = document.shippingForm_BE.state.value;
-				if (state.length == 0) return false;
-				return true;
-			}
-            function validateState()
-			{
-				var state = document.shippingForm_BE.state.value;
-				if (state.length == 0) return false;
-				return true;
-			}
-            function validateState()
-			{
-				var state = document.shippingForm_BE.state.value;
-				if (state.length == 0) return false;
-				return true;
-			}function validateState()
-			{
-				var state = document.shippingForm_BE.state.value;
-				if (state.length == 0) return false;
-				return true;
-			}function validateState()
-			{
-				var state = document.shippingForm_BE.state.value;
-				if (state.length == 0) return false;
-				return true;
-			}
-    </script>
+        $('#myForm').on('submit', function(e) {
+        
+        e.preventDefault(); //stop submit
+        
+        if ($('#myCheck').is(':checked')) {
+        //Check if checkbox is checked then show modal
+            $('#myModal').modal('show');
+        }
+        });
+
+</script>
+
+
+
 </head>
 
 <body>
@@ -201,14 +139,26 @@ include('./connect.php');
     </nav>
     
     <!--Navigation Bar ends-->
+    <!-- Carousel start-->
+        <div id="carousel" class="carousel slide py-3" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            </div>
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./Assets/shipping.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h1 id="services">Shipping Form</h1>
+                <h3>Please fill out the form below.</h3>
+                </div>
+            </div>
+            </div>
+        </div>
+<!--Carousal ends-->
 
-    <div class="exit_button">
-        <a href="cusHomepage.html">
-            <button class="btn btn-primary" type="button">Exit Shipping Form</button>
-        </a>
-    </div>
+   
     <div class="container mt-5">
-        <form name= "shippingForm_BE" action="shippingForm_BE.php" method="POST" class="row g-5 needs-validation"> 
+        <form name= "shippingForm_BE" action="shippingForm_BE.php" method="POST" data-toggle="modal" class="row g-5 needs-validation"> 
 
             <div class="col-md-6" id="sender_border">
                 <!-- Sender's information -->
@@ -314,15 +264,7 @@ include('./connect.php');
                         <input type="phone"class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="9" required minlength="10">
                         <div id="emsg_phone" class="emsg_phone"></div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="location" class="form-label">Send To</label>
-                        <select name="location" id="location" placeholder="Location"tabindex="10" required>
-                            <option value=""></option>
-                            <option value="Sài Gòn">Sài Gòn</option>
-                            <option value="Tỉnh (Province)">Tỉnh</option>
-                        </select>
-                        <div id="emsg_state" class="emsg_state"></div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -351,11 +293,7 @@ include('./connect.php');
                         <label for="phone_r" class="form-label">Phone</label>
                         <input type="text" class="form-control" id="phone_r" name="phone_r" placeholder="Phone " tabindex="14" required>
                     </div>
-                    <div class="col-md-12">
-                        <label for="send_date" class="form-label">Item Sending Date</label>
-                        <input type="date" class="form-control" id="send_date" name="send_date" placeholder="Item send date" tabindex="15" required>
-                        <div id="emsg_send_r1" class="emsg_send_r1"></div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -373,7 +311,15 @@ include('./connect.php');
                         <label for="pkg1_weight" class="form-label">Weight (lbs)</label>
                         <input type="text" class="form-control" id="pkg1_weight" name="pkg1_weight" placeholder="Package 1 Weight" tabindex="16" required></input>
                     </div>
-                    
+                    <div class="col-md-2">
+                        <label for="location" class="form-label">Send To</label>
+                        <select class="form-select" name="location" id="location" placeholder="Location"tabindex="10" required>
+                            <option selected=""></option>
+                            <option value="Sài Gòn">Sài Gòn</option>
+                            <option value="Tỉnh (Province)">Tỉnh</option>
+                        </select>
+                        <div id="emsg_state" class="emsg_state"></div>
+                    </div>
                 </div>
                 <div class="form_buttons">
                     <button class="btn btn-danger" id="reset_button" type="reset">Reset</button>
