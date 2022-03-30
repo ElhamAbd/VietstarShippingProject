@@ -141,8 +141,8 @@ hr {
 .aos-init p{
  margin: 1rem;
 }
-#services{
-  
+.services{
+  color: #A87102;
   text-align: center;
 }
 .subtitle{
@@ -701,4 +701,18 @@ table th {
 
 .shipping_customs_line {
   margin: 6% 8% 6% 8%;
+}
+
+
+/* about us page*/
+.our_mission_page_container {
+  margin: 5%;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.center-pic {
+  align-items: center;
 }
