@@ -2,6 +2,9 @@
 require_once '../../connect.php';
 require_once '../model/shipping_data.php';
 require_once '../model/inventory_data.php';
+$position=$_SESSION['SESS_POSITION'];
+$name=$_SESSION['SESS_NAME'];
+
 $mst = trim(filter_input(INPUT_GET, 'mst', FILTER_SANITIZE_STRING));
 $shipord = get_shipping_invoice_info($mst);
 $sales_id = $shipord[0]['sales_id'];
@@ -66,7 +69,7 @@ if (!empty($sales_id)) { // Some instore items are purcahse
 
   @media only screen and (max-width: 991px) {
   .navbar-primary {
-    background: blue;
+    background: #505251;
   }
   
 }
@@ -74,7 +77,7 @@ if (!empty($sales_id)) { // Some instore items are purcahse
 </head>
 
 <body>
-<?php include '../../navfixed.php';?>
+<?php include 'navfixed.php';?>
   <nav class="navbar-primary sticky">
 		<a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
 		<div class="navbar-primary-menu" id="myTopnav"> 
@@ -210,7 +213,7 @@ if (!empty($sales_id)) { // Some instore items are purcahse
         <div class="col-12">
           <div class="row">
             <div class="col-6">
-              <label>Shipping fee</label>
+              <label>Phí Vận Chuyển - Shipping fee</label>
             </div><!--col-6-->
             <div class="item col-6">
               <?php
@@ -221,7 +224,7 @@ if (!empty($sales_id)) { // Some instore items are purcahse
           </div><!--row--> 
           <div class="row">
             <div class="col-6">
-              <label>Custom Fee</label>
+              <label>Phí Phụ Thu - Custom Fee</label>
             </div><!--col-6-->
             <div class="item col-6">
               <?=$shipord[0]['custom_fee'];?>
@@ -229,7 +232,7 @@ if (!empty($sales_id)) { // Some instore items are purcahse
           </div><!--row-->
           <div class="row">
             <div class="item col-6">
-              <label>Instore Item</label>
+              <label>Hàng Mua ở Tiệm - Instore Item</label>
             </div><!--col-6-->
             <div class="item col-6">
               <?=$total_instore;?>
@@ -237,7 +240,7 @@ if (!empty($sales_id)) { // Some instore items are purcahse
           </div><!--row--> 
           <div class="row">
             <div class="col-6">
-              <label>Insurance</label>
+              <label>Bảo Hiểm - Insurance</label>
             </div><!--col-6-->
             <div class="item col-6">
               <?=$shipord[0]['insurance'];?>
@@ -246,7 +249,7 @@ if (!empty($sales_id)) { // Some instore items are purcahse
           <hr>
           <div class="row">
             <div class="item col-6">
-              <label class="fw-bold invoice-price-left">Total Amount</label>
+              <label class="fw-bold invoice-price-left">Tổng Cộng - Total Amount</label>
             </div><!--col-6-->
             <div class="item col-6">
                     <strong><?=$shipord[0]['amount']?> </strong>

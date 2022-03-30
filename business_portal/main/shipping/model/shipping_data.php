@@ -82,16 +82,17 @@ function search_customer($search_input) {
 }
 
 /** Recipient */
-function add_recipient($a, $b, $c, $d) {
+function add_recipient($a, $b, $c, $d, $e) {
   echo "<br>Start Add recipient<br>";
   global $db;
-  $query = 'INSERT INTO `recipient`(`recipient_name`, `recipient_address`, `recipient_phone`, `customer_id`) VALUES (:a,:b,:c,:d)';
+  $query = 'INSERT INTO `recipient`(`recipient_name`, `recipient_address`, `recipient_phone`, `customer_id`, `recipient_email`) VALUES (:a,:b,:c,:d,:e)';
   $stmt = $db->prepare($query);
   $res = $stmt->execute(array(
     ':a' => $a,
     ':b' => $b,
     ':c' => $c,
-    ':d' => $d
+    ':d' => $d,
+    ':e' => $e
    ));
    echo "<br>EndAdd recipient<br>";
 }
@@ -203,6 +204,18 @@ function get_shipping_invoice_info($mst) {
 
 function get_temp_shipping_order($shipping_order_id) {
   global $db;
+  $query = 'SELECT * FROM temp_shipping_order
+  WHERE shipping_order_id =  :shipping_order_id';
+  $stmt = $db->prepare($query);
+  $stmt ->bindValue(':shipping_order_id', $shipping_order_id);
+  $stmt->execute();
+  $shipping_order = $stmt->fetchAll();
+  $stmt->closeCursor(); 
+  return $shipping_order;
+}
+
+function get_temp_shipping_order_temp_package($shipping_order_id) {
+  global $db;
   $query = 'SELECT * FROM temp_shipping_order tso
   JOIN temp_package tp ON tso.shipping_order_id =  tp.shipping_order_id
   WHERE tso.shipping_order_id =  :shipping_order_id';
@@ -271,13 +284,13 @@ function valid_recipient($cust_id, $name) {
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
   echo $row['num'];
   if ($row['num'] == 0) {
-    echo '<br>Customer data does not exist<br>'; 
+    echo '<br>Recipient data does not exist<br>'; 
     return true;
   } else {
-     echo '<br>Customer data exists in DB<br>'; 
+     echo '<br>Recipient data exists in DB<br>'; 
     return false;
   }
-  $stmt-->closeCursor();
+  $stmt->closeCursor();
   echo "<br>End valid recipient<br>"; 
 }
 

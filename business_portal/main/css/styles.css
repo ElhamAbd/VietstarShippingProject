@@ -87,10 +87,32 @@
   cursor: pointer;
 }
 
-/* Small & Medium devices (phones, landscape tablets 991px and below) */
-/** Source: https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_mediaquery_breakpoints */
+.sidebar-nav {
+  padding: 9px 0;
+}
+.navbar-global {
+  background-color: #0d6efd;
+  height: 52px;
+}
+.navbar .brand {
+  display: block;
+  float: left;
+  padding: 10px 20px 10px;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 100;
+  color: #fff;
+}
+
+.navbar .nav > li > a {
+  float: none;
+  padding: 10px 15px 10px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0px 0 #ffffff;
+}
+
 @media only screen and (max-width: 991px) {
   .navbar-primary {
-    background-color: blue;
-  }
+    background: #505251;
 }
