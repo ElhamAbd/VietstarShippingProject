@@ -608,3 +608,50 @@ table th {
 .center-pic {
   align-items: center;
 }
+
+/* Responsive Pricing table for shipping fees */
+
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.price:hover {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+  background-color: #111;
+  color: black;
+  font-size: 25px;
+}
+
+.price .header2 {
+  background-color: #111;
+  color: white;
+  font-size: 25px;
+}
+
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.price .grey {
+  background-color: #eee;
+  font-size: 20px;
+}
+
+.shipping_fees_table {
+  margin-left: 20%; 
+  /* margin-right: 20%; */
+}
+
+.shipping_customs_line {
+  margin: 6% 8% 6% 8%;
+}
