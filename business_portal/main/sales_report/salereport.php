@@ -132,6 +132,7 @@
 												<td><?= $row['custom_fee']; ?></td>
 												<td><?= $row['custom_fee_taxed_item']; ?></td>
 												<td><?= $row['insurance']; ?></td>
+                                                
                                             </tr>
                                             <?php
                                         }
