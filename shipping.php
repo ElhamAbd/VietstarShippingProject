@@ -21,22 +21,11 @@ include('./connect.php');
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script src="js/datatables.js"></script>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="shippingStyles.css">
-<script src="Scripts/swfobject_modified.js"></script>
-<link rel="shortcut icon" href="images/Vietstar Shipping Company Logo (No Background).png">
-
-<script src="js/datatables.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script defer src="formValidationScript.js"></script>
-
-<style>
+    <style>
     .err { background: #ffe6ee; border: 1px solid #b1395f; }
     .emsg { color: #c12020; font-weight: bold; }
 </style> 
@@ -55,11 +44,9 @@ include('./connect.php');
 </script>
 
 
-
 </head>
 
 <body>
-
     <nav class="navbar1  p-md-1 navbar-style navbar-topbar navbar-expand-lg  navbar-dark text-light">
         <div class="container">
             <ul class="navbar-nav">
@@ -75,7 +62,7 @@ include('./connect.php');
     
     <div id="header" class="p-md-4">
         
-
+        
         <h1>VIETSTAR SHIPPING & TRAVEL</h1>
     </div>
 
@@ -86,7 +73,7 @@ include('./connect.php');
                 <img src="./Assets/logo/NewVietstarLogo.png" alt="Avatar Logo"
                         style="width:40px;" class="rounded-pill">
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./index.html">
                 <img src="./Assets/logo/VIETSTAR.png" width="150" height="40" class="d-inline-block align-top" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -107,9 +94,6 @@ include('./connect.php');
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./shipping.php">Shipping Form</a></li>
                             <li><a class="dropdown-item" href="./customFees.html">Custom Fees</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
                             <li><a class="dropdown-item" href="./trackPage.html">Track Shipment</a></li>
                         </ul>
                     </li>
@@ -119,26 +103,25 @@ include('./connect.php');
                             About Us
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                            <li><a class="dropdown-item" href="./aboutus.html">Our Mission</a></li>
                             <li><a class="dropdown-item" href="./faq.html">FAQ</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="./contactUs.html">Contact us</a></li>
+                            <li><a class="dropdown-item" href="./hotItems.html">Hot Items</a></li>
                         </ul>
-                    </li>
-                    
+                    </li> 
                 </ul>
-                <form class="d-flex search-bar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-
+                <ul class="navbar-nav">
+                <li class="nav-item justify-content-end">
+                    <a class="nav-link colors" href="./contactUs.html">Contact us</a></li>
+                </ul>
             </div>
         </div>
     </nav>
     
     <!--Navigation Bar ends-->
+
     <!-- Carousel start-->
         <div id="carousel" class="carousel slide py-3" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -163,7 +146,7 @@ include('./connect.php');
             <div class="col-md-6" id="sender_border">
                 <!-- Sender's information -->
 
-                <h3>Sender's Information</h3> </br></br>
+                <h3 class="colors">Sender's Information</h3> </br></br>
                 
                 <div class="row">
 
@@ -198,7 +181,7 @@ include('./connect.php');
                     </div>
                     <div class="col-md-4">
                         <label for="state" class="form-label">State</label>
-                        <select name="state" id="state" tabindex="7" required>
+                        <select name="state" id="options" tabindex="7" required>
                             <option value=""></option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -271,7 +254,7 @@ include('./connect.php');
             <div class="col-md-6">
                 <!-- Recipient's information -->
                 
-                <h3>Recipient's Information</h3> </br></br>
+                <h3 class="colors">Recipient's Information</h3> </br></br>
 
                 <div class="row">
 
@@ -300,7 +283,7 @@ include('./connect.php');
             <div class="col-md-12" id="item_desc_area">
                 <!-- Item description field -->
                 
-                </br></br> <h3>Item Descriptions</h3> </br></br>
+                </br></br> <h3 class="colors">Item Descriptions</h3> </br></br>
 
                 <div class="row">
                     <div class="col-md-9">
@@ -327,7 +310,7 @@ include('./connect.php');
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="submit_modal" tabindex="-1" aria-labelledby="modal_label" aria-hidden="true">
+                <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="modal_label" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -345,14 +328,38 @@ include('./connect.php');
         </form>
 
     </div>
-</body>
+
+    <!-- Footer -->
+
+ 
+    <div id="google-element"></div>
+        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+            style="color: #474747;"></script>
+        <script>
+            function loadGoogleTranslate() {
+                new google.translate.TranslateElement("google_element");
+            }
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <Script>
+        $("#click-me").click(function () {
+            $("#show").toggle("slow", function () {
+            });
+        });
+
+        $(".x").click(function () {
+            $(".container").toggle("slow", function () {
+                // Animation complete.  
+            });
+        });
+    </Script>
 <footer class="footer-long">
     <div class="mt-5 p-lg-5 text-black-50 text-center container-fluid">
     <div class="row">
             
         <!--end of col-->
         <div class="col-12 col-lg-3">
-            <img src="./Assets/logo/VIETSTAR.png">
+            <img src="./Assets/logo/VIETSTAR.png" alt="logo">
             <hr class="light">
 
         </div>
@@ -363,16 +370,16 @@ include('./connect.php');
                     <hr class="light">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="./index.html">Home</a>
                         </li>
                         <li>
-                            <a href="pages-landing.html">Shipping form</a>
+                            <a href="./shipping.php">Shipping form</a>
                         </li>
                         <li>
-                            <a href="pages-app.html">Customs fees</a>
+                            <a href="./customFees.html">Customs fees</a>
                         </li>
                         <li>
-                            <a href="pages-inner.html">Reimbursement Policy</a>
+                            <a href="./Assets/Reimbersement.pdf">Reimbursement Policy</a>
                         </li>
                     </ul>
                 </div>
@@ -385,13 +392,13 @@ include('./connect.php');
                     <ul class="list-unstyled">
                         
                         <li>
-                            <a href="#">Track Shipment</a>
+                            <a href="./trackPage.html">Track Shipment</a>
                         </li>
                         <li>
-                            <a href="#">FAQ</a>
+                            <a href="./faq.html">FAQ</a>
                         </li>
                         <li>
-                            <a href="#">Contact</a>
+                            <a href="./contactUs.html">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -401,36 +408,34 @@ include('./connect.php');
                     <hr class="light">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#">About company</a>
+                            <a href="./aboutus.html">About company</a>
                         </li>
                         <li>
-                            <a href="#">History</a>
+                            <a href="./aboutus.html">History</a>
                         </li>
                         <li>
-                            <a href="#">Team</a>
+                            <a href="./aboutus.html">Team</a>
                         </li>
                         <li>
-                            <a href="#">Location</a>
+                            <a href="./contactUs.html">Location</a>
                         </li>
                     </ul>
                 </div>
                 <!--end of col-->
                 <div class="col-6 col-lg-3">
-                    <h6>Connect</h6>
-                    <hr class="light"> 
                     <ul class="list-unstyled social">
                         <li>
                             <a href="https://www.facebook.com/Vietstar-Shipping-Eden-Center-100594958786649/"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
                               </svg></a>
-                            <a href="https://api.whatsapp.com/send?phone=17035878989&app=facebook&entry_point=page_cta"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                              </svg></a>
+                            
                               <br>
                         </li>
-                        <hr>
-                        <h6>Translate</h6>
-                        <hr class="light">
+                    </ul>  
+                    <hr class="light">
+                    <h6>Translate</h6>
+                    <hr class="light">
+                    <ul class="list-unstyled">
                         <li>
                             <div style="position: relative;">
                                 <div id="google_element" style="position: relative; opacity: 100; color: black;"></div>
@@ -453,14 +458,13 @@ include('./connect.php');
                 <p>Copyright &copy; 2022 VIETSTAR SHIPPING</p>
             </div>
             <div class="col-md-6 text-md-end">
-                <a href="./Assets/Quy Trinh Xu Li Khieu Nai (Reimbursement Process).docx"
-                    class="text-light">Reimbursement Process</a>
+                <a href="./Assets/Reimbersement.pdf" class="text-light">Reimbursement Process</a>
                 <span class="text-muted mx-2">|</span>
-                <a href="./Assets/Điểu khoản gửi hàng (Shipping Policies).pdf" class="text-light">Shipping
+                <a href="./Assets/shippingpolicy.pdf" class="text-light">Shipping
                     Policy</a>
             </div>
         </div>
     </div>
 </footer>
+</body>
 </html>
-

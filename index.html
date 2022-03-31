@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -83,6 +84,9 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./aboutus.html">Our Mission</a></li>
                             <li><a class="dropdown-item" href="./faq.html">FAQ</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="./hotItems.html">Hot Items</a></li>
                         </ul>
                     </li> 
@@ -137,7 +141,7 @@
     <!--Carousal ends-->
     <!--Services cointainer starts-->
     <section class="section section1" style="background: #fafafa;" id="about">
-    <h1 id="services">Our Services</h1>
+    <h1 class="services">Our Services</h1>
     <hr class="my-1">
     <div class="container marketing" >
         <div class="row">
@@ -195,7 +199,7 @@
         <div class="container px-lg-1 py-4 padding" id="custom-cards">
             <p class="subtitle">Running out of time?</p>
             <h2 class="pb-2 border-bottom">Last Minute Items Sold in Store</h2>
-            <a class="text-muted text-sm d-lg-flex" href="./hotItems.html">
+            <a class="text-muted text-sm justify-content-end" href="./hotItems.html">
                 See all items<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-chevron-double-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -238,12 +242,12 @@
     </section>
     <!--Cards ends-->
 
-
+    <br>
 
     <!--Feature Starts here-->
     <div class="container content-space-t-1 content-space-t-md-2 content-space-b-2 content-space-b-lg-3" style="border-bottom: 1ch;" id="feature">
         <div class="row col-md-divider col-divider-rotated ">
-            <h1 class="cusResponse text-center padding">Why You Should Choose Us</h1>
+            <h1 class="services text-center padding">Why You Should Choose Us</h1>
             <div class="col-md-4">
                 <div data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">
                     <!-- Stats -->
@@ -378,135 +382,138 @@
    
     
     <div id="google-element"></div>
-        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
-            style="color: #474747;"></script>
-        <script>
-            function loadGoogleTranslate() {
-                new google.translate.TranslateElement("google_element");
-            }
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <Script>
-        $("#click-me").click(function () {
-            $("#show").toggle("slow", function () {
-            });
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+        style="color: #474747;"></script>
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement("google_element");
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<Script>
+    $("#click-me").click(function () {
+        $("#show").toggle("slow", function () {
         });
+    });
 
-        $(".x").click(function () {
-            $(".container").toggle("slow", function () {
-                // Animation complete.  
-            });
+    $(".x").click(function () {
+        $(".container").toggle("slow", function () {
+            // Animation complete.  
         });
-    </Script>
-</body>
-<footer class="footer-long stick">
-    <div class="mt-5 p-lg-5 text-black-50 text-center container-fluid">
-    <div class="row">
-            
-        <!--end of col-->
-        <div class="col-12 col-lg-3">
-            <img src="./Assets/logo/VIETSTAR.png">
-            <hr class="light">
+    });
+</Script>
+<footer class="footer-long">
+<div class="mt-5 p-lg-5 text-black-50 text-center container-fluid">
+<div class="row">
+        
+    <!--end of col-->
+    <div class="col-12 col-lg-3">
+        <img src="./Assets/logo/VIETSTAR.png" alt="logo">
+        <hr class="light">
 
-        </div>
-        <div class="col-12 col-md-9">
-            <div class="row no-gutters">
-                <div class="col-6 col-lg-3">
-                    <h6>Navigate</h6>
-                    <hr class="light">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="./shipping.php">Shipping form</a>
-                        </li>
-                        <li>
-                            <a href="./customFees.html">Customs fees</a>
-                        </li>
-                        <li>
-                            <a href="./Assets/Reimbersement.pdf">Reimbursement Policy</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--end of col-->
+    </div>
+    <div class="col-12 col-md-9">
+        <div class="row no-gutters">
+            <div class="col-6 col-lg-3">
+                <h6>Navigate</h6>
+                <hr class="light">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="./shipping.php">Shipping form</a>
+                    </li>
+                    <li>
+                        <a href="./customFees.html">Customs fees</a>
+                    </li>
+                    <li>
+                        <a href="./Assets/Reimbersement.pdf">Reimbursement Policy</a>
+                    </li>
+                </ul>
+            </div>
+            <!--end of col-->
 
-                <!--end of col-->
-                <div class="col-6 col-lg-3">
-                    <h6>Need help?</h6>
-                    <hr class="light">
-                    <ul class="list-unstyled">
+            <!--end of col-->
+            <div class="col-6 col-lg-3">
+                <h6>Need help?</h6>
+                <hr class="light">
+                <ul class="list-unstyled">
+                    
+                    <li>
+                        <a href="./trackPage.html">Track Shipment</a>
+                    </li>
+                    <li>
+                        <a href="./faq.html">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="./contactUs.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--end of col-->
+            <div class="col-6 col-lg-3">
+                <h6>Company</h6>
+                <hr class="light">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="./aboutus.html">About company</a>
+                    </li>
+                    <li>
+                        <a href="./aboutus.html">History</a>
+                    </li>
+                    <li>
+                        <a href="./aboutus.html">Team</a>
+                    </li>
+                    <li>
+                        <a href="./contactUs.html">Location</a>
+                    </li>
+                </ul>
+            </div>
+            <!--end of col-->
+            <div class="col-6 col-lg-3">
+                <ul class="list-unstyled social">
+                    <li>
+                        <a href="https://www.facebook.com/Vietstar-Shipping-Eden-Center-100594958786649/"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                          </svg></a>
                         
-                        <li>
-                            <a href="./trackPage.html">Track Shipment</a>
-                        </li>
-                        <li>
-                            <a href="./faq.html">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="./contactUs.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--end of col-->
-                <div class="col-6 col-lg-3">
-                    <h6>Company</h6>
-                    <hr class="light">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="./aboutus.html">About company</a>
-                        </li>
-                        <li>
-                            <a href="./aboutus.html">History</a>
-                        </li>
-                        <li>
-                            <a href="./aboutus.html">Team</a>
-                        </li>
-                        <li>
-                            <a href="./contactUs.html">Location</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--end of col-->
-                <div class="col-6 col-lg-3"> 
-                    <ul class="list-unstyled social">
-                        <li>
-                            <a href="https://www.facebook.com/Vietstar-Shipping-Eden-Center-100594958786649/"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                              </svg></a>
-                            
-                        </li>
-                        <hr>
-                        <h6>Translate</h6>
-                        <hr class="light">
-                        <li>
-                            <div style="position: relative;">
-                                <div id="google_element" style="position: relative; opacity: 100; color: black;"></div>
-                               <!--<button id="translate" class="btn btn-secondary dropdown-toggle"
-                                    style="position: absolute; left: 0; top: 0; z-index: -1; color: black;"></button>--> 
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--end of row-->
-        </div>
-        <!--end of col-->
-        <hr class="my-4">
-    </div>
-   
-        <div class="row">
-            
-            <div id="Register" class="col-md-6">
-                <p>Copyright &copy; 2022 VIETSTAR SHIPPING</p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <a href="./Assets/Reimbersement.pdf"class="text-light">Reimbursement Process</a>
-                <span class="text-muted mx-2">|</span>
-                <a href="./Assets/Điểu khoản gửi hàng (Shipping Policies).pdf" class="text-light">Shipping
-                    Policy</a>
+                          <br>
+                    </li>
+                </ul>  
+                <hr class="light">
+                <h6>Translate</h6>
+                <hr class="light">
+                <ul class="list-unstyled">
+                    <li>
+                        <div style="position: relative;">
+                            <div id="google_element" style="position: relative; opacity: 100; color: black;"></div>
+                           <!--<button id="translate" class="btn btn-secondary dropdown-toggle"
+                                style="position: absolute; left: 0; top: 0; z-index: -1; color: black;"></button>--> 
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
+        <!--end of row-->
     </div>
+    <!--end of col-->
+    <hr class="my-4">
+</div>
+
+    <div class="row">
+        
+        <div id="Register" class="col-md-6">
+            <p>Copyright &copy; 2022 VIETSTAR SHIPPING</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <a href="./Assets/Reimbersement.pdf" class="text-light">Reimbursement Process</a>
+            <span class="text-muted mx-2">|</span>
+            <a href="./Assets/shippingpolicy.pdf" class="text-light">Shipping
+                Policy</a>
+        </div>
+    </div>
+</div>
 </footer>
+</body>
 </html>
