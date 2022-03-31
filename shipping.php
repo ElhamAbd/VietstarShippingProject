@@ -92,7 +92,7 @@ include('./connect.php');
 				alert("Required data missing");
 				return;
 				}else
-				    //alert("Your Form has been submitted. You can now take your items to the store.");
+				    alert("Your Form has been submitted. You can now take your items to the store.");
                     var modalToggle = document.getElementById('MyModal') // relatedTarget
                         myModal.show(modalToggle)   
 				    return;
@@ -399,7 +399,7 @@ include('./connect.php');
                     </div>
                     <div class="col-md-4">
                         <label for="phone_r" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone_r" name="phone_r" placeholder="Phone " tabindex="10" required>
+                        <input type="text" class="form-control" id="phone_r" name="phone_r" placeholder="Phone " tabindex="10" required maxlength="20">
                     </div>
                     
                 </div>
