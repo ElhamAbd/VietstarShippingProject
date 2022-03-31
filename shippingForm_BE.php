@@ -101,7 +101,7 @@
            ':v15' =>$send_date,
            ':v16' =>$pkg1
            ));
-        //header("location: shipping.php");
+        header("location: shipping.php");
 
         if ($res) echo '<br>Success<br>';
         else echo '<br>Fail<br>';
