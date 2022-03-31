@@ -1,3 +1,12 @@
+<?php 
+include('../connect.php');
+require_once('../../auth.php');
+$position=$_SESSION['SESS_POSITION'];
+$name=$_SESSION['SESS_NAME'];
+
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE>
 <html>
 <head>
@@ -17,7 +26,7 @@
 		width: 100%;
 		color: #588c7e;
 		font-family: monospace;
-		font-size : 25px;
+		font-size : 16px;
 		text-align: left;
 	}
 	th{
@@ -39,16 +48,13 @@
 </style>	
 </head>
 <body>
-  <?php include '../navfixed.php';?>
+  <?php include 'navfixed.php';?>
 	<nav class="navbar-primary sticky">
 		<a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
 		<ul class="navbar-primary-menu">
-			<li> <a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Dashboard</span></a></li>
-			<li class="active"><a href="#" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li>             
-			<li><a href="shipping/index.php" class="nav-link text-white"><i class="icon-truck icon-2x icon-2x"></i> Shipping</a></li>
-			<li><a href="inventory/index.php" class="nav-link text-white"><i class="icon-list-alt icon-2x"></i> Inventory</a></li>
-			<li><a href="#" class="nav-link text-white"><i class="icon-group icon-2x"></i>Customers</a></li>
-			<li><a href="#" class="nav-link text-white"><i class="icon-bar-chart icon-2x"></i> Sales Report</a></li>		
+            <li> <a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Customers</span></a></li>
+			<li><a href="../index.php" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li>             
+			<li><a href="customer.php" class="nav-link text-white active">Customer List</a></li>		
 		</ul>
 	</nav><!--/.navbar-primary-->
      <div class="main-content">
@@ -56,7 +62,7 @@
             <div class="col-md-12">
                 <div class="card mt-4">
                 <div class="card-header">
-                        <h4>Customer </h4>
+                        <h4>Recipients</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -81,15 +87,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                include('connect.php');
-                                ini_set('display_errors',1);
-                                error_reporting(E_ALL);
-                                ?>
-
                                 <?php 
-                                
-                                    $con = mysqli_connect("localhost","root","root","vietstar_shipping");
 
                                     if(isset($_GET['customer_id']))
                                     {
