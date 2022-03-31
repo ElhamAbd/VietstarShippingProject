@@ -39,7 +39,7 @@
                     <div class="col-lg-6 m-auto">
                         <div class="card mt-5">
                             <div class="card-title">
-                                <h3 class="bg-success text-white text-center py-3"> Update Form in PHP</h3>
+                                <h3 class="bg-success text-white text-center py-3"> Customer information edit</h3>
                             </div>
                             <div class="card-body">
 

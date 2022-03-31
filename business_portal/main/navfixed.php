@@ -1,11 +1,8 @@
 <nav class="navbar navbar-inverse navbar-global navbar-fixed-top top-sticky">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a  class="navbar-brand" href="#">Vietstar Shipping</a>
-        <a href="#" class="btn-expand-collapse"><i class="icon-truck icon-2x"></i></a>
-			</div>
-				<ul class="nav navbar-user navbar-left"><!-- navbar-nav -->
-					<li><a href="#"><i class="icon-user icon-large"></i> Welcome</a></li>
+				<a  class="navbar-brand" href="#">Vietstar Shipping</a>	
+				<div class="toggle-navbar-btn toggle-truck"><i class="icon-truck icon-2x icon-2x"></i><span class="fs-4"></div>
+				<ul class="nav nav-user pull-right"><!-- navbar-nav -->
+					<li><a href="#"><i class="icon-user icon-large"></i> Welcome <?=$name?>!</a></li>
+					<li><a href="../logout.php"><i class="icon-off icon-large"></i> Log Out</a></li> 
 				</ul>
-		</div>
-	</nav><!--navbar navbar-inverse navbar-global navbar-fixed-top-->
+</nav><!--navbar navbar-inverse navbar-global navbar-fixed-top-->
