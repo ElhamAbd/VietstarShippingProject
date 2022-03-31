@@ -91,9 +91,9 @@
                                 
                                     $con = mysqli_connect("localhost","root","root","vietstar_shipping");
 
-                                    if(isset($_GET['GetID']))
+                                    if(isset($_GET['customer_id']))
                                     {
-                                        $customer_id = $_GET['GetID'];
+                                        $customer_id = $_GET['customer_id'];
                                         $query = "SELECT * FROM customer c JOIN  recipient r ON c.customer_id = r.customer_id WHERE c.customer_id = $customer_id";
                                         //$query = "SELECT * FROM customer WHERE customer_id=$customer_id";
                                         $query_run = mysqli_query($con, $query);
@@ -109,9 +109,8 @@
                                                     <td><?= $items['recipient_address']; ?></td>
                                                     <td><?= $items['recipient_phone']; ?></td>
                                                     <td><?= $items['recipient_email']; ?></td>
-                                                    <td><a href="reedit.php?GetID=<?php echo $items['recipient_id'] ?>">Edit</a></td>
-                                            
-
+                                                    <td><a href="reedit.php?recipient_id=<?php echo $items['recipient_id']?>&customer_id=<?php echo $customer_id?>">Edit</a></td>
+                
 
                                                 </tr>
                                                 <?php

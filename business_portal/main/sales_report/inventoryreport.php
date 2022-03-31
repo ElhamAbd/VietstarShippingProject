@@ -16,7 +16,7 @@
 		width: 100%;
 		color: #588c7e;
 		font-family: monospace;
-		font-size : 25px;
+		font-size : 18px;
 		text-align: left;
 	}
 	th{
@@ -38,19 +38,17 @@
 </style>	
 </head>
 <body>
-  <?php include '../navfixed.php';?>
+  <?php include 'navfixed.php';?>
 	<nav class="navbar-primary sticky">
 		<a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
 		<ul class="navbar-primary-menu">
-			<li> <a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Dashboard</span></a></li>
-			<li class="active"><a href="#" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li>             
-			<li><a href="shipping/index.php" class="nav-link text-white"><i class="icon-truck icon-2x icon-2x"></i> Shipping</a></li>
-			<li><a href="inventory/index.php" class="nav-link text-white"><i class="icon-list-alt icon-2x"></i> Inventory</a></li>
-			<li><a href="#" class="nav-link text-white"><i class="icon-group icon-2x"></i>Customers</a></li>
-			<li><a href="#" class="nav-link text-white"><i class="icon-bar-chart icon-2x"></i> Sales Report</a></li>		
+            <li><a class="d-flex align-items-center pl-3 text-white text-decoration-none"><span class="fs-4">Sales Report</span></a></li>          
+			<li><a href="../index.php" class="nav-link text-white"><i class="icon-dashboard icon-2x"></i> Dashboard </a></li> 
+            <li><a href="salereport.php" class="nav-link text-white"> Shipping Sales Report</a></li>    
+            <li><a href="inventoryreport.php" class="nav-link text-white active"> Inventory Sales Report</a></li>  	
 		</ul>
 	</nav><!--/.navbar-primary-->
-	<div class="main-content">
+	<div id="print_content" class="main-content">
 	<div class="col-md-12">
                 <div class="card mt-5">
                     <div class="card-header">
@@ -72,17 +70,17 @@
                                         <input type="date" name="to_date" value="<?php if(isset($_GET['to_date'])){ echo $_GET['to_date']; } ?>" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                            </div>
+                            <div class="row mt-3">
+                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Click to Filter</label> <br>
                                       <button type="submit" class="btn btn-primary">Filter</button>
+                                      <button onclick="window.print()" class= "btn btn-primary">Print</button>
+                                      <a href="javascript:Clickheretoprint()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <div class="text-center">
-                        <button onclick="window.print()" class= "btn btn-primary">Print</button>
-                        </div>
                     </div>
                     </div>
                 </div>
@@ -93,11 +91,11 @@
                             <thead>
                                 <tr>
                                     <th>Invoice number</th>
-                                    <th>MST</th>
+                                    <th>Amount</th>
                                     <th>Payment Method</th>
-									<th>Amount</th>
+									<th>MST</th>
 									<th>Sales Date</th>
-									<th>Discount</th>
+									<!--<th>Discount</th>-->
 
                                 </tr>
                             </thead>
@@ -105,6 +103,7 @@
                             
                             <?php 
                                 $con = mysqli_connect("localhost","root","root", "vietstar_shipping");
+                                $total = 0; // total amount
 
                                 if(isset($_GET['from_date']) && isset($_GET['to_date']))
                                 {
@@ -118,14 +117,15 @@
                                     {
                                         foreach($query_run as $row)
                                         {
+                                            $total = $total + $row['sales_amount']; 
                                             ?>
                                             <tr>
                                                 <td><?= $row['invoice_number']; ?></td>
-                                                <td><?= $row['mst']; ?></td>
+                                                <td><?= $row['sales_amount']; ?></td>
                                                 <td><?= $row['sales_payment_method']; ?></td>
-												<td><?= $row['sales_amount']; ?></td>
+                                                <td><?= $row['mst']; ?></td>
 												<td><?= $row['sales_date']; ?></td>
-                                                <td><?= $row['sales_discount']; ?></td>
+                                                <!--<td><?= $row['sales_discount']; ?></td>-->
 
                                             </tr>
                                             <?php
@@ -135,8 +135,18 @@
                                     {
                                         echo "No Record Found";
                                     }
+
                                 }
                             ?>
+                                            <tr>
+                                                <td>TOTAL</td>
+                                                <td><?=$total?></td>
+                                                <td></td>
+												<td></td>
+												<td></td>
+                         
+
+                                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -148,17 +158,22 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-	<!--<script src="scripts.js"></script>-->
+    <script>
+        function Clickheretoprint() { 
+        var disp_setting="toolbar=yes,location=no,directories=yes,menubar=yes,"; 
+            disp_setting+="scrollbars=yes,width=800, height=400, left=100, top=25"; 
+        var content_vlue = document.getElementById("print_content").innerHTML; 
+        
+        var docprint=window.open("","",disp_setting); 
+        docprint.document.open(); 
+        docprint.document.write('<html><head><title>Vietstar Shipping</title><link rel="stylesheet" type="text/css" href="../../css/shipping_invoice.css"><link rel="stylesheet" href="../../css/lib/bootstrap.css">'); 
+        docprint.document.write('<style>table{ border-collapse: collapse;width: 100%; font-family: monospace;font-size : 18px; text-align: left;} th{color:black;}tr:nth-child(even) {background-color: #f2f2f2;}</style>');
+        docprint.document.write('</head><body onLoad="self.print()">');          
+        docprint.document.write(content_vlue); 
+        docprint.document.write('</body></html>'); 
+        docprint.document.close(); 
+        docprint.focus(); 
+        }
+     </script>
 </body>
 </html>

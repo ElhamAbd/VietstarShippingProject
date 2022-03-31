@@ -117,7 +117,7 @@
                                                     <td><?= $items['cust_email']; ?>
                                                     <td><?= $items['cust_phone']; ?></td>
                                                     <td><a href="edit.php?GetID=<?php echo $items['customer_id'] ?>">Edit</a></td>
-                                                    <td><a href="recipient.php?GetID=<?php echo $items['customer_id'] ?>">Recipient</a></td>
+                                                    <td><a href="recipient.php?customer_id=<?php echo $items['customer_id'] ?>">Recipient</a></td>
                 
                                                 </tr>
                                                 <?php

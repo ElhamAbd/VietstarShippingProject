@@ -4,10 +4,11 @@
     error_reporting(E_ALL);
     ?>
         <?php
-        $id = $_GET['GetID'];
+            $recipient_id = $_GET['recipient_id'];
+            $customer_id = $_GET['customer_id'];
             $query = "select * from recipient where recipient_id=:id";
             $stmt = $db->prepare($query);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':id', $recipient_id);
             $res = $stmt->execute();
             if ($res) echo "Success";
             else echo "Fail";
@@ -16,7 +17,8 @@
             $recipient_name = $recipient['recipient_name'];
             $recipient_email = $recipient['recipient_email'];
             $recipient_phone = $recipient['recipient_phone'];
-
+            $recipient_address = $recipient['recipient_address'];
+            //echo "Recipient Id:  $recipient_id ; Customer id: $customer_id";
         ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +39,9 @@
                             </div>
                             <div class="card-body">
 
-                                <form action="update.php?ID=<?php echo $recipient_id ?>" method="post">
+                                <form action="reupdate.php?recipient_id=<?php echo $recipient_id ?>&customer_id=<?php echo $customer_id?>" method="post">
                                     <input type="text" class="form-control mb-2" placeholder=" User Name " name="name" value="<?php echo $recipient_name ?>">
+                                    <input type="text" class="form-control mb-2" placeholder=" User Address " name="address" value="<?php echo $recipient_address ?>">
                                     <input type="email" class="form-control mb-2" placeholder=" User Email " name="email" value="<?php echo $recipient_email ?>">
                                     <input type="text" class="form-control mb-2" placeholder=" phone " name="phone" value="<?php echo $recipient_phone ?>">
                                     <button class="btn btn-primary" name="update">Update</button>

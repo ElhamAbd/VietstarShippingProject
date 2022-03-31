@@ -9,7 +9,8 @@
 
             if(isset($_POST['update']))
             {
-                $recipient_id = $_GET['ID'];
+                $recipient_id = $_GET['recipient_id'];
+                $customer_id = $_GET['customer_id'];
                 $recipient_name = $_POST['name'];
                 $recipient_email = $_POST['email'];
                 $recipient_phone = $_POST['phone'];
@@ -25,18 +26,20 @@
 
                 if($result)
                 {
-                    echo 'sucess';
-                   // header("location:customer.php");
+                    echo 'success';
+                    header("location:recipient.php?recipient_id=$recipient_id&customer_id=$customer_id");
                 }
                 else
                 {
-                    echo ' Please Check Your Query ';
+                    echo ' Please Check Your Query';
                 }
             }
             else
             {
-                header("location:customer.php");
+                    echo 'Update is not set';
+               // header("location:customer.php");
             }
 
 
 ?>
+
