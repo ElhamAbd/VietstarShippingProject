@@ -311,13 +311,9 @@ include('./connect.php');
                         <div id="emsg_first_name" class="emsg_first_name"></div>
                     </div>
                     
+                    
                     <div class="col-md-12">
-                        <label for="package_value" class="form-label">Package item value</label>
-                        <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Package Valued at" tabindex="3" required>
-                        <div id="emsg_address1" class="emsg_address1"></div>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="address1" class="form-label">Address 1</label>
+                        <label for="address1" class="form-label">Address </label>
                         <input type="text" class="form-control" id="address1" name="address1" placeholder="Streer., Apt., PMB#, etc." tabindex="4" required>
                     </div>
                     <div class="col-md-4">
@@ -445,6 +441,11 @@ include('./connect.php');
                     <div class="col-md-9">
                         <label for="pkg1" class="form-label">Items in Package </label>
                         <textarea class="form-control" rows="6" cols="50"  id="pkg1" name="pkg1" placeholder="Package 1 Item Descriptions" tabindex="15"required></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="package_value" class="form-label">Package item value</label>
+                        <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Package Valued at" tabindex="3" required>
+                        <div id="emsg_address1" class="emsg_address1"></div>
                     </div>
                     <div class="col-md-3">
                         <label for="pkg1_weight" class="form-label">Weight (lbs)</label>
