@@ -313,17 +313,17 @@ include('./connect.php');
                     
                     
                     <div class="col-md-12">
-                        <label for="address1" class="form-label">Address </label>
-                        <input type="text" class="form-control" id="address1" name="address1" placeholder="Streer., Apt., PMB#, etc." tabindex="4" required>
+                        <label for="address1" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address1" name="address1" placeholder="Street., Apt., MailboxBox#, etc." tabindex="2" required>
                     </div>
                     <div class="col-md-4">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" name="city" placeholder="City" tabindex="5" required>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" tabindex="3" required>
                         <div id="emsg_city" class="emsg_city"></div>
                     </div>
                     <div class="col-md-4">
                         <label for="zip_code" class="form-label">Zip Code</label>
-                        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Zip Code" tabindex="6" required minlength="5" maxlength="10">
+                        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Zip Code" tabindex="4" required minlength="5" maxlength="10">
                         <div id="emsg_zip_code" class="emsg_zip_code"></div>
                     </div>
                     <div class="col-md-4">
@@ -386,12 +386,12 @@ include('./connect.php');
                     </div>
                     <div class="col-md-8">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="8" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="5" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                         <div id="emsg_email" class="emsg_email"></div>
                     </div>
                     <div class="col-md-4">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="phone"class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="9" required minlength="10">
+                        <input type="phone"class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="6" required minlength="10">
                         <div id="emsg_phone" class="emsg_phone"></div>
                     </div>
                     
@@ -407,21 +407,21 @@ include('./connect.php');
 
                     <div class="col-md-6">
                         <label for="full_name_r" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="full_name_r" name="full_name_r" placeholder="Full Name" tabindex="11" required>
+                        <input type="text" class="form-control" id="full_name_r" name="full_name_r" placeholder="Full Name" tabindex="7" required>
                         <div id="emsg_first_name_r" class="emsg_first_name_r"></div>
                     </div>
                     <div class="col-md-12">
                         <label for="address_r1" class="form-label">Address</label>
-                        <textarea class="form-control" rows="6" cols="50" id="address_r1" name="address_r1" placeholder="Recipient Address" tabindex="12" required></textarea>
+                        <textarea class="form-control" rows="6" cols="50" id="address_r1" name="address_r1" placeholder="Recipient Address" tabindex="8" required></textarea>
                         <div id="emsg_address_r1" class="emsg_address_r1"></div>
                     </div>
                     <div class="col-md-8">
                         <label for="email_r" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email_r" name="email_r" placeholder="Email (Optional)" tabindex="13" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <input type="text" class="form-control" id="email_r" name="email_r" placeholder="Email (Optional)" tabindex="9" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     </div>
                     <div class="col-md-4">
                         <label for="phone_r" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone_r" name="phone_r" placeholder="Phone " tabindex="14" required>
+                        <input type="text" class="form-control" id="phone_r" name="phone_r" placeholder="Phone " tabindex="10" required>
                     </div>
                     
                 </div>
@@ -435,25 +435,25 @@ include('./connect.php');
                 <div class="row">
                 <div class="col-md-6">
                         <label for="num_of_package" class="form-label">Number of Package</label>
-                        <input type="number" class="form-control" id="num_of_package" name="num_of_package" placeholder="1" tabindex="2" required>
+                        <input type="number" class="form-control" id="num_of_package" name="num_of_package" placeholder="1" tabindex="11" required>
                         <div id="emsg_last_name" class="emsg_last_name"></div>
                     </div>
                     <div class="col-md-9">
                         <label for="pkg1" class="form-label">Items in Package </label>
-                        <textarea class="form-control" rows="6" cols="50"  id="pkg1" name="pkg1" placeholder="Package 1 Item Descriptions" tabindex="15"required></textarea>
+                        <textarea class="form-control" rows="6" cols="50"  id="pkg1" name="pkg1" placeholder="Item Descriptions" tabindex="12"required></textarea>
                     </div>
-                    <div class="col-md-12">
-                        <label for="package_value" class="form-label">Package item value</label>
-                        <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Package Valued at" tabindex="3" required>
+                    <div class="col-md-3">
+                        <label for="package_value" class="form-label">Package Item Value</label>
+                        <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Package Valued at" tabindex="13" required>
                         <div id="emsg_address1" class="emsg_address1"></div>
                     </div>
                     <div class="col-md-3">
                         <label for="pkg1_weight" class="form-label">Weight (lbs)</label>
-                        <input type="text" class="form-control" id="pkg1_weight" name="pkg1_weight" placeholder="Package 1 Weight" tabindex="16" required></input>
+                        <input type="text" class="form-control" id="pkg1_weight" name="pkg1_weight" placeholder="Weight" tabindex="14" required></input>
                     </div>
                     <div class="col-md-2">
                         <label for="location" class="form-label">Send To</label>
-                        <select class="form-select" name="location" id="location" placeholder="Location"tabindex="10" required>
+                        <select class="form-select" name="location" id="location" placeholder="Location"tabindex="15" required>
                             <option selected=""></option>
                             <option value="Sài Gòn">Sài Gòn</option>
                             <option value="Tỉnh (Province)">Tỉnh</option>
