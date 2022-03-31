@@ -310,11 +310,7 @@ include('./connect.php');
                         <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" tabindex="1" required>
                         <div id="emsg_first_name" class="emsg_first_name"></div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="num_of_package" class="form-label">Number of Package</label>
-                        <input type="number" class="form-control" id="num_of_package" name="num_of_package" placeholder="1" tabindex="2" required>
-                        <div id="emsg_last_name" class="emsg_last_name"></div>
-                    </div>
+                    
                     <div class="col-md-12">
                         <label for="package_value" class="form-label">Package item value</label>
                         <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Package Valued at" tabindex="3" required>
@@ -441,8 +437,13 @@ include('./connect.php');
                 </br></br> <h3 class="colors">Item Descriptions</h3> </br></br>
 
                 <div class="row">
+                <div class="col-md-6">
+                        <label for="num_of_package" class="form-label">Number of Package</label>
+                        <input type="number" class="form-control" id="num_of_package" name="num_of_package" placeholder="1" tabindex="2" required>
+                        <div id="emsg_last_name" class="emsg_last_name"></div>
+                    </div>
                     <div class="col-md-9">
-                        <label for="pkg1" class="form-label">Package 1</label>
+                        <label for="pkg1" class="form-label">Items in Package </label>
                         <textarea class="form-control" rows="6" cols="50"  id="pkg1" name="pkg1" placeholder="Package 1 Item Descriptions" tabindex="15"required></textarea>
                     </div>
                     <div class="col-md-3">
