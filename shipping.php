@@ -364,12 +364,12 @@ include('./connect.php');
                     </div>
                     <div class="col-md-8">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Optional" tabindex="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                         <div id="emsg_email" class="emsg_email"></div>
                     </div>
                     <div class="col-md-4">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="tel"class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="6" required length="10" pattern="[0-9]{10}">
+                        <input type="tel"class="form-control" id="phone" name="phone" placeholder="example: 5712342345" tabindex="6" required length="10" pattern="[0-9]{10}">
                         <div id="emsg_phone" class="emsg_phone"></div>
                     </div>
                     
@@ -413,7 +413,7 @@ include('./connect.php');
                 <div class="row">
                 <div class="col-md-6">
                         <label for="num_of_package" class="form-label">Number of Package</label>
-                        <input type="number" class="form-control" id="num_of_package" name="num_of_package" placeholder="number of package" tabindex="11" required>
+                        <input type="number" class="form-control" id="num_of_package" name="num_of_package" placeholder="" tabindex="11" required>
                         <div id="emsg_last_name" class="emsg_last_name"></div>
                     </div>
                     <div class="col-md-9">
@@ -422,12 +422,12 @@ include('./connect.php');
                     </div>
                     <div class="col-md-3">
                         <label for="package_value" class="form-label">Package Item Value</label>
-                        <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Package Valued at" tabindex="13" >
+                        <input type="number" class="form-control" id="package_value" name="package_value" placeholder="Optional" tabindex="13" >
                         <div id="emsg_address1" class="emsg_address1"></div>
                     </div>
                     <div class="col-md-3">
                         <label for="pkg1_weight" class="form-label">Weight (lbs)</label>
-                        <input type="text" class="form-control" id="pkg1_weight" name="pkg1_weight" placeholder="Weight" tabindex="14" ></input>
+                        <input type="text" class="form-control" id="pkg1_weight" name="pkg1_weight" placeholder="Optional" tabindex="14" ></input>
                     </div>
                     <div class="col-md-2">
                         <label for="location" class="form-label">Send To</label>
