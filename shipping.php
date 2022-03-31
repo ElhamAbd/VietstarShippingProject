@@ -30,19 +30,174 @@ include('./connect.php');
     .emsg { color: #c12020; font-weight: bold; }
 </style> 
 <script>
+            function doSubmit()
+			{
+			if (validateName() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+                if (validateNumOfPackage() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+                if (validatePackageValue() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+				if (validatePhone() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+				if (validateAddress() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+				if (validateCity() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+				if (validateZip() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+				if (validateState() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+                if (validateMail() == false)
+				{
+				alert("Required data missing!");
+				return;
+				}
+                if (validaterecName() == false)
+				{
+				alert("Required data missing");
+				return;
+				}
+			    if (validaterecAddress() == false)
+				{
+				alert("Required data missing");
+				return;
+				}
+                if (validaterecPhone() == false)
+				{
+				alert("Required data missing");
+				return;
+				}
+                if (validateITEM() == false)
+				{
+				alert("Required data missing");
+				return;
+				}
+                if (validateSendto() == false)
+				{
+				alert("Required data missing");
+				return;
+				}else
+				    //alert("Your Form has been submitted. You can now take your items to the store.");
+                    var modalToggle = document.getElementById('MyModal') // relatedTarget
+                        myModal.show(modalToggle)   
+				    return;
+				}
+			function validateName()
+			{
+				var name = document.shippingForm_BE.full_name.value;
+				if (name.length == 0) return false;
+				return true;
+			}
+            function validateNumOfPackage()
+			{
+				var package = document.shippingForm_BE.num_of_package.value;
+				if (package.length == 0) return false;
+				return true;
+			}
+            function validatePackageValue()
+			{
+				var Valued = document.shippingForm_BE.package_value.value;
+				if (Valued.length == 0) return false;
+				return true;
+			}
+			function validatePhone()
+			{
+				var phone = document.shippingForm_BE.phone.value;
+				if (phone.length == 0) return false;
+				return true;
+			}
+			
+			function validateAddress()
+			{
+				var address1 = document.shippingForm_BE.address1.value;
+				if (address1.length == 0) return false;
+				return true;
+			}
+			function validateCity()
+			{
+				var city = document.shippingForm_BE.city.value;
+				if (city.length == 0) return false;
+				return true;
+			}
+			function validateZip()
+			{
+				var zip = document.shippingForm_BE.zip_code.value;
+				if (zip.length == 0) return false;
+				return true;
+			}
+			function validateState()
+			{
+				var state = document.shippingForm_BE.state.value;
+				if (state.length == 0) return false;
+				return true;
+			}
+			function validateMail()
+			{
+				var email = document.shippingForm_BE.email.value;
+				if (mail.length == 0) return false;
+				return true;
+			}
+            function validaterecName()
+			{
+				var recName = document.shippingForm_BE.full_name_r.value;
+				if (mail.length == 0) return false;
+				return true;
+			}
+            function validaterecAddress()
+			{
+				var recAdress = document.shippingForm_BE.address_r1.value;
+				if (recAddress.length == 0) return false;
+				return true;
+			}
+            function validaterecPhone()
+			{
+				var recPhone = document.shippingForm_BE.phone_r.value;
+				if (recPhone.length == 0) return false;
+				return true;
+			}
+            function validateITEM()
+			{
+				var itemDesc = document.shippingForm_BE.pkg1.value;
+				if (itemDesc.length == 0) return false;
+				return true;
+			}
+            function validateSendto()
+			{
+				var sendTo = document.shippingForm_BE.location.value;
+				if (sendTo.length == 0) return false;
+				return true;
+			}
+			</script>
+            <script type="text/javascript"> 
+            function showmyModal() {
 
-        $('#myForm').on('submit', function(e) {
-        
-        e.preventDefault(); //stop submit
-        
-        if ($('#myCheck').is(':checked')) {
-        //Check if checkbox is checked then show modal
-            $('#myModal').modal('show');
-        }
-        });
-
-</script>
-
+                    $('#MyModal').modal('show');
+                    }</script>
 
 </head>
 
@@ -141,7 +296,7 @@ include('./connect.php');
 
    
     <div class="container mt-5">
-        <form name= "shippingForm_BE" action="shippingForm_BE.php" method="POST" data-toggle="modal" class="row g-5 needs-validation"> 
+        <form name= "shippingForm_BE" action="shippingForm_BE.php" method="POST" data-toggle="modal" class="row g-5 "> 
 
             <div class="col-md-6" id="sender_border">
                 <!-- Sender's information -->
@@ -306,11 +461,11 @@ include('./connect.php');
                 </div>
                 <div class="form_buttons">
                     <button class="btn btn-danger" id="reset_button" type="reset">Reset</button>
-                    <button class="btn btn-primary" id="submit_button" type="submit">Submit Shipping Form</button>
+                    <button class="btn btn-primary" id="submit_button" type="submit" onClick="doSubmit(); showmyModal()">Submit Shipping Form</button>
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="modal_label" aria-hidden="true">
+                <div class="modal fade" id="MyModal" tabindex="-1" aria-labelledby="modal_label" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
