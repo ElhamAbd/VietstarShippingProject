@@ -369,7 +369,7 @@ include('./connect.php');
                     </div>
                     <div class="col-md-4">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="phone"class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="6" required minlength="10">
+                        <input type="number"class="form-control" id="phone" name="phone" placeholder="Phone" tabindex="6" required length="10" pattern="[0-9]">
                         <div id="emsg_phone" class="emsg_phone"></div>
                     </div>
                     
