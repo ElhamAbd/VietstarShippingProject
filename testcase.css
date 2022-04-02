@@ -585,8 +585,8 @@ section {
 }
 
 .custom-fees-table {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 table th {
@@ -647,11 +647,12 @@ table th {
   font-size: 20px;
 }
 
-.shipping_fees_table {
-  margin-left: 20%; 
-  /* margin-right: 20%; */
-}
-
 .shipping_customs_line {
   margin: 6% 8% 6% 8%;
+}
+
+/* About Us Carousel */
+
+#about-us-carousel-indicators {
+  margin: 5%;
 }
