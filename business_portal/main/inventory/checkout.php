@@ -68,6 +68,9 @@ background-repeat:no-repeat;
 	border:1px #CCC solid;
 }
 
+.required {
+  color:red;
+}
 </style>	
 </head>
 <body onLoad="document.getElementById('country').focus();">
@@ -81,14 +84,14 @@ background-repeat:no-repeat;
 <input type="hidden" name="cashier" value="<?php echo $_GET['cashier']; ?>" />
 <input type="hidden" name="profit" value="<?php echo $_GET['total_profit']; ?>" />
 <center>
-	<label> Enter Customer Name </label>
+	<label> Enter Customer Name (optional) </label>
 <input type="text" size="25" value="" name="cname" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Name" style="width: 268px; height:30px;" />
       <div class="suggestionsBox" id="suggestions" style="display: none;">
         <div class="suggestionList" id="suggestionsList"> &nbsp; </div>
       </div>	
-	  <label> Payment method </label>
+	  <label> Payment method <span class="required">*</span></label>
 <input type="text" size="25" value="" name="ptype" class="greybox" onblur="fill();" class="" autocomplete="off" placeholder="cash, credit, zelle, or venmo" style="width: 268px; height:30px;" required/>
-<label> Customer payment ($)</label>
+<label> Customer payment ($) <span class="required">*</span></label>
 <input type="text" size="25" value="<?php echo $_GET['total_amount']; ?>" name="cust_payment" id="cust_payment" onblur="fill();" placeholder="0.00" style="width: 268px; height:30px;"/>
 <button class="btn btn-success btn-block btn-large" style="width:267px;">Submit</button>
 </center>

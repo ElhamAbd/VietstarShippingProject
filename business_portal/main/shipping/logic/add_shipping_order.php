@@ -9,12 +9,23 @@ $user_id = $_SESSION['SESS_MEMBER_ID'];
 
 // Sender
 $cust_name = clean_input($_GET['cust_name']);
+
 $cust_phone = clean_input($_GET['cust_phone']);
+$cust_phone = preg_replace('/[^0-9]/', '', $cust_phone);
+echo "CUST Phone after being filtered: $cust_phone";
+
 $cust_email = clean_input($_GET['cust_email']);
 $cust_address = clean_input($_GET['cust_address']);
 $cust_city = clean_input($_GET['cust_city']);
 $cust_state = clean_input($_GET['cust_state']);
 $cust_zip= clean_input($_GET['cust_zip']);
+
+if (empty($cust_email)) $cust_email= 'NA';
+if (empty($cust_address)) $cust_address = 'NA';
+if (empty($cust_city)) $cust_city = 'NA';
+if (empty($cust_state)) $cust_state = 'NA';
+if (empty($cust_zip)) $cust_zip = 'NA';
+
 // Recipient
 $recipient_id = clean_input($_GET['recipient_id']);
 $recipient_name = clean_input($_GET['recipient_name']);
@@ -72,7 +83,6 @@ else  { // Check if customer info exists or not(Blank or Online Shipping Form)
 
 /** Recipient */
 if (!empty($recipient_id) && empty($recipient_name) && empty($recipient_address)) { // select an existing recipient
-// if (!empty($recipient_id) && empty($recipient_name) && empty($recipient_address)) {
   $recipient_id = clean_input($_GET['recipient_id']);
   echo "Recipient id is not empty<br>";
   echo "Recipient id: $recipient_id<br>";
@@ -124,6 +134,9 @@ if ($num_of_items != -1) {  // Some instore items are purchased
 echo "Items PURHCHASED: ";
 print_r($items);
 
+
+
+
 // Add new shipping ord to the db
 if (valid_shipping_ord($mst)) {
   echo "Get inside";
@@ -131,7 +144,7 @@ if (valid_shipping_ord($mst)) {
   $shipping_order = get_shipping_order($mst);
   $shipping_order_id =  $shipping_order[0]['shipping_order_id']; // Get shipping order id of an mst package
   add_package($shipping_order_id, $packages);
-}
+} 
 header('location:../view/shipping_form_online.php');
 ?>
 <!--<a href="../view/shipping_form_online.php">Back</a>-->

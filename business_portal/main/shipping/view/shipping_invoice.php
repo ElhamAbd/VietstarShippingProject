@@ -257,10 +257,18 @@ if (!empty($sales_id)) { // Some instore items are purcahse
           </div><!--row--> 
           <div class="row mt-3">
             <div class="col-6">
-              <label class="fw-bold">Payment Method</label>
+              <label class="fw-bold">Phương Thức Trả Tiền - Payment Method</label>
             </div><!--col-6-->
             <div class="col-6">
               <strong><?=$shipord[0]['payment_method']?> </strong>
+            </div><!--col-6-->
+          </div><!--row--> 
+          <div class="row mt-4">
+            <div class="col-6">
+              <label class="fw-bold">Khách hàng ký tên X__________________________</label>
+            </div><!--col-6-->
+            <div class="col-6">
+              <strong>Nhân viên ký tên X__________________________</strong>
             </div><!--col-6-->
           </div><!--row--> 
         </div><!--col-12-->
