@@ -416,7 +416,8 @@ section {
 
 .card {
   border: 1px solid #eee;
-  cursor: pointer
+  cursor: pointer;
+  height: ;
 }
 
 .weight {
