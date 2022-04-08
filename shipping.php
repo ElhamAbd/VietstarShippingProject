@@ -273,8 +273,8 @@ include('./connect.php');
 <!--Carousal ends-->
 
    
-    <div class="container mt-5">
-        <form name= "shippingForm_BE" action="shippingForm_BE.php" method="POST" data-toggle="modal" class="row g-5 "> 
+    <div class="container mt-5 ">
+        <form  name= "shippingForm_BE" action="shippingForm_BE.php" method="POST" data-toggle="modal" class="row g-5 "> 
 
             <div class="col-md-6" id="sender_border">
                 <!-- Sender's information -->
