@@ -9,7 +9,8 @@
 	$errflag = false;
 	
 	//Connect to mysql server
-	$conn = mysqli_connect('localhost','root','root','vietstar_shipping');
+	//$conn = mysqli_connect('localhost','root','root','vietstar_shipping');
+ 	$conn = mysqli_connect("ls-a9bf68472683f6dbeaf64fcf64ce7c81bf5fa6d6.cv9qb4mlh1sf.us-east-1.rds.amazonaws.com","dbmasteruser","P2TtK([idwq^vMLbU=".'$dE4l'.",p0)$=3O=","vietstar_shipping"); 
 	if(!$conn) {
 		die('Failed to connect to server: ' . mysqli_error());
 	}
